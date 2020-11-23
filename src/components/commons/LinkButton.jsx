@@ -5,8 +5,8 @@ const LinkButton = (props) => {
   const { label, to, ...styleInputs } = props;
 
   return (
-    <Link to="/" style={getStyles(styleInputs)}>
-      {label}
+    <Link to="/" style={{ display: "inline-block" }}>
+      <div style={getStyles(styleInputs)}>{label}</div>
     </Link>
   );
 };
@@ -23,5 +23,6 @@ const getStyles = (styleInputs) => {
     border: "0.1vw solid",
     borderColor: styleInputs.borderColor || "rgb(200,200,200)",
     borderRadius: "1.35vw",
+    display: "inline-block",
   };
 };
