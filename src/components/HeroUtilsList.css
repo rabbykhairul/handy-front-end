@@ -8,7 +8,7 @@
   flex-wrap: wrap;
 }
 
-.hero-utils-list a {
+.hero-utils-list div {
   padding-right: 1vw;
   padding-bottom: 1.5vw;
 }
