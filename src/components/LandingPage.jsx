@@ -1,10 +1,12 @@
 import React from "react";
 import HeroHeader from "./HeroHeader";
+import HeroUtilsList from "./HeroUtilsList";
 
 const LandingPage = () => {
   return (
     <div style={getStyles()}>
       <HeroHeader />
+      <HeroUtilsList />
     </div>
   );
 };
