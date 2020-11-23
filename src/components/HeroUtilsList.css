@@ -1,0 +1,14 @@
+.hero-utils-list {
+  width: 51%;
+  height: fit-content;
+  padding: 0 6.25vw;
+  padding-top: 1vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.hero-utils-list a {
+  padding-right: 1vw;
+  padding-bottom: 1.5vw;
+}
