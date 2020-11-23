@@ -1,39 +1,38 @@
-import React from "react";
+import React, { Component } from "react";
 import LinkButton from "./commons/LinkButton";
 import "./HeroUtilsList.css";
 
-const HeroUtilsList = () => {
-  return (
-    <div className="hero-utils-list">
-      <div>
-        <LinkButton to="/" label="Resize image"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="Use pomodoro to focus"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="Convert image"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="Start timer"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="create to do list"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="manage money"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="build good habits"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="calculate your age"></LinkButton>
-      </div>
-      <div>
-        <LinkButton to="/" label="create survey"></LinkButton>
-      </div>
-    </div>
-  );
-};
+class HeroUtilsList extends Component {
+  utilsInfoObjs = [
+    { label: "Resize image", to: "/", borderColor: "" },
+    { label: "Use pomodoro to focus", to: "/", borderColor: "" },
+    { label: "Convert image", to: "/", borderColor: "" },
+    { label: "create a to-do list", to: "/", borderColor: "" },
+    { label: "Start timer", to: "/", borderColor: "" },
+    { label: "Manage money", to: "/", borderColor: "" },
+    { label: "Create survey", to: "/", borderColor: "" },
+    { label: "Calculate age", to: "/", borderColor: "" },
+    { label: "Build good habits", to: "/", borderColor: "" },
+    { label: "Covert PPT to PDF", to: "/", borderColor: "" },
+  ];
+
+  renderUtilsButtons = () => {
+    return this.utilsInfoObjs.map((utilsInfo) => {
+      return (
+        <div key={utilsInfo.label}>
+          <LinkButton
+            to={utilsInfo.to}
+            label={utilsInfo.label}
+            borderColor={utilsInfo.borderColor}
+          />
+        </div>
+      );
+    });
+  };
+
+  render() {
+    return <div className="hero-utils-list">{this.renderUtilsButtons()}</div>;
+  }
+}
 
 export default HeroUtilsList;
