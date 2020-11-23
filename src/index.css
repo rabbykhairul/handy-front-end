@@ -24,6 +24,7 @@ a:active {
 
 #root::before {
   content: "";
+  width: 100%;
   height: 100vh;
   position: absolute;
   background: rgb(49, 122, 246);
