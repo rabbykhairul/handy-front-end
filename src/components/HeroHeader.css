@@ -1,0 +1,21 @@
+.hero-header {
+  width: 49%;
+  height: 100%;
+  padding-left: 17.5vw;
+  padding-right: 6.25vw;
+}
+
+.hero-header h1 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2.65vw;
+  font-weight: 600;
+  line-height: 4.25vw;
+}
+
+.hero-header p {
+  padding-top: 2.5vw;
+  font-size: 1.15vw;
+  font-weight: 300;
+  line-height: 2.25vw;
+  letter-spacing: 0.05vw;
+}
