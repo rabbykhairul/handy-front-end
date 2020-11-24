@@ -1,12 +1,12 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import TopNavBar from "./components/TopNavBar";
+import { Route, Link } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
+import UtilServicesPage from "./components/utilServices/utilServicesPage";
 
 function App() {
   return (
     <>
-      <TopNavBar />
+      <Route path="/util-services/" component={UtilServicesPage} />
       <Route path="/" exact component={LandingPage} />
     </>
   );
