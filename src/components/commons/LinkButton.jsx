@@ -5,7 +5,7 @@ const LinkButton = (props) => {
   const { label, to, ...styleInputs } = props;
 
   return (
-    <Link to="/" style={{ display: "inline-block" }}>
+    <Link to={to} style={{ display: "inline-block" }}>
       <div style={getStyles(styleInputs)}>{label}</div>
     </Link>
   );
