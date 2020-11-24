@@ -3,3 +3,25 @@
   height: 100vh;
   color: #fff;
 }
+
+.landing-page::before {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: rgb(49, 122, 246);
+  top: 0vw;
+  z-index: -1;
+  opacity: 1;
+  animation: reduceToHalf 1.25s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes reduceToHalf {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 49%;
+  }
+}
