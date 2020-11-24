@@ -1,10 +1,11 @@
 import React from "react";
 import TopNavBar from "./TopNavBar";
 import HeroSection from "./HeroSection";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
-    <div style={getStyles()}>
+    <div className="landing-page">
       <TopNavBar />
       <HeroSection />
     </div>
@@ -12,11 +13,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-const getStyles = () => {
-  return {
-    width: "100%",
-    height: "100vh",
-    color: "#fff",
-  };
-};
