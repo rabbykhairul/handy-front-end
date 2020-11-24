@@ -1,5 +1,4 @@
 nav {
-  /* border-bottom: 1px solid red; */
   width: 100%;
   height: 12vh;
   display: flex;
@@ -21,4 +20,12 @@ nav {
   letter-spacing: 0.05vw;
   text-transform: lowercase;
   margin-left: 14.5vw;
+}
+
+.util-services-nav {
+  border-bottom: 0.1vw solid rgb(200, 200, 200);
+}
+
+.util-services-nav .nav-left-side {
+  color: rgb(8, 8, 8);
 }

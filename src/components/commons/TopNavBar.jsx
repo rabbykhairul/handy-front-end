@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import LinkButton from "./LinkButton";
 import "./TopNavBar.css";
 
-const TopNavBar = () => {
+const TopNavBar = (props) => {
+  const { pageType } = props;
+  const className = pageType === "util-services" ? "util-services-nav" : "";
+
   return (
-    <nav>
+    <nav className={className}>
       {renderLeftSide()}
       {renderRightSide()}
     </nav>
