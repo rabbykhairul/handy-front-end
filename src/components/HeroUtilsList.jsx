@@ -4,7 +4,11 @@ import "./HeroUtilsList.css";
 
 class HeroUtilsList extends Component {
   utilsInfoObjs = [
-    { label: "Resize image", to: "/", borderColor: "" },
+    {
+      label: "Resize image",
+      to: "/util-services/resize-image",
+      borderColor: "",
+    },
     { label: "Use pomodoro to focus", to: "/", borderColor: "" },
     { label: "Convert image", to: "/", borderColor: "" },
     { label: "create a to-do list", to: "/", borderColor: "" },
