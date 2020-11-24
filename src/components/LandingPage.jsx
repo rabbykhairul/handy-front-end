@@ -1,12 +1,12 @@
 import React from "react";
-import HeroHeader from "./HeroHeader";
-import HeroUtilsList from "./HeroUtilsList";
+import TopNavBar from "./TopNavBar";
+import HeroSection from "./HeroSection";
 
 const LandingPage = () => {
   return (
     <div style={getStyles()}>
-      <HeroHeader />
-      <HeroUtilsList />
+      <TopNavBar />
+      <HeroSection />
     </div>
   );
 };
@@ -16,9 +16,7 @@ export default LandingPage;
 const getStyles = () => {
   return {
     width: "100%",
-    height: "88vh",
-    display: "flex",
+    height: "100vh",
     color: "#fff",
-    paddingTop: "8.5vh",
   };
 };
