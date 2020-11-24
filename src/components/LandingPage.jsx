@@ -1,5 +1,5 @@
 import React from "react";
-import TopNavBar from "./TopNavBar";
+import TopNavBar from "./commons/TopNavBar";
 import HeroSection from "./HeroSection";
 import "./LandingPage.css";
 
