@@ -16,7 +16,8 @@
 
 input[type="text"],
 input[type="number"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   font-size: 1.15vw;
   font-weight: 500;
   letter-spacing: 0.035vw;
@@ -31,7 +32,8 @@ input[type="email"] {
 
 input[type="text"]:focus,
 input[type="number"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+input[type="password"]:focus {
   border: 0.01vw solid black;
   outline: none;
 }
