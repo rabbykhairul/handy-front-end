@@ -4,7 +4,7 @@ import "./FormButton.css";
 const FormButton = (props) => {
   const { label } = props;
 
-  return <button className="form-button">Resize image</button>;
+  return <button className="form-button">{label}</button>;
 };
 
 export default FormButton;
