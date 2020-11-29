@@ -1,0 +1,27 @@
+.radio-input-group {
+  width: 100%;
+  height: fit-content;
+  display: inline-block;
+  padding-bottom: 1.15%;
+}
+
+.radio-input-group-title {
+  font-size: 0.8vw;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.025vw;
+  display: block;
+  width: 100%;
+}
+
+.radio-buttons {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.75vw;
+}
+
+.radio-buttons div {
+  padding-right: 1vw;
+}
