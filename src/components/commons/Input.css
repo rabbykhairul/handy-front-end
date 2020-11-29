@@ -1,8 +1,8 @@
 .regular-input {
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display: inline-block;
-  padding-bottom: 7.25%;
+  padding-bottom: 1.15vw;
 }
 
 .regular-input span {
@@ -22,9 +22,8 @@ input[type="password"] {
   font-weight: 500;
   letter-spacing: 0.035vw;
   width: 100%;
-  height: 85%;
   padding: 0.85vw;
-  margin-top: 2.25%;
+  margin-top: 0.75vw;
   background-color: rgb(246, 246, 246);
   border: 0.01vw solid transparent;
   border-radius: 0.25vw;
