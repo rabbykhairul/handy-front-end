@@ -2,7 +2,7 @@ import React, { createRef, useEffect, useState } from "react";
 import "./FileInput.css";
 
 const FileInput = (props) => {
-  const { onChange, onDrop } = props;
+  const { label, onChange, onDrop } = props;
 
   const dropRef = createRef();
   const [isDragging, setIsDragging] = useState(false);
@@ -65,7 +65,7 @@ const FileInput = (props) => {
 
   return (
     <label className="file-input" ref={dropRef}>
-      <p>Drop your image here...</p>
+      <p>{label}</p>
       {isDragging && (
         <div className="overlay-file-drag-indicator">Drop here :-)</div>
       )}

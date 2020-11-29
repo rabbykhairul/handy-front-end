@@ -42,9 +42,15 @@ const ResizeImageForm = () => {
   };
 
   const renderFormLeftSide = () => {
+    const label = input.image ? input.image.name : "Drop your image here...";
+
     return (
       <div className="resize-image-form-left-side">
-        <FileInput onChange={updateInputData} onDrop={handleFileDrop} />
+        <FileInput
+          label={label}
+          onChange={updateInputData}
+          onDrop={handleFileDrop}
+        />
       </div>
     );
   };
