@@ -21,6 +21,7 @@
 
 .form-button:hover {
   color: #fff;
+  letter-spacing: 0.45vw;
   background-color: #232323;
   border-color: #232323;
 }
