@@ -26,7 +26,21 @@ const ResizeImageForm = () => {
   // Handle the form data when user click submit button
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(input);
     // getResizedImage(input);
+  };
+
+  const renderFormLeftSide = () => {
+    return <div className="resize-image-form-left-side"></div>;
+  };
+
+  const renderFormRightSide = () => {
+    return (
+      <div className="resize-image-form-right-side">
+        {renderRemainingInputFields()}
+        {renderFormSubmitButton()}
+      </div>
+    );
   };
 
   const renderRemainingInputFields = () => {
@@ -78,11 +92,8 @@ const ResizeImageForm = () => {
 
   return (
     <form className="resize-image-form" onSubmit={handleSubmit}>
-      <div className="resize-image-form-left-side"></div>
-      <div className="resize-image-form-right-side">
-        {renderRemainingInputFields()}
-        {renderFormSubmitButton()}
-      </div>
+      {renderFormLeftSide()}
+      {renderFormRightSide()}
     </form>
   );
 };
