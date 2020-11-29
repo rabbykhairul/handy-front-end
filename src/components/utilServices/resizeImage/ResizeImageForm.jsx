@@ -21,7 +21,7 @@ const ResizeImageForm = () => {
       inputField.name === "image" ? inputField.files[0] : inputField.value;
     setInput(newInput);
 
-    console.log(newInput);
+    // console.log(newInput);
   };
 
   // Handle the form data when user click submit button
@@ -31,10 +31,20 @@ const ResizeImageForm = () => {
     // getResizedImage(input);
   };
 
+  // Handle drag and drop file input
+  const handleFileDrop = (files) => {
+    const imageFile = files[0];
+
+    const newInput = { ...input };
+    newInput.image = imageFile;
+
+    setInput(newInput);
+  };
+
   const renderFormLeftSide = () => {
     return (
       <div className="resize-image-form-left-side">
-        <FileInput onChange={updateInputData} />
+        <FileInput onChange={updateInputData} onDrop={handleFileDrop} />
       </div>
     );
   };
