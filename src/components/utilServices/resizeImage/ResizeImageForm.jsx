@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "../../commons/Input";
+import FileInput from "../../commons/FileInput";
 import RadioInputGroup from "../../commons/RadioInputGroup";
 import FormButton from "../../commons/FormButton";
 import "./ResizeImageForm.css";
@@ -31,7 +32,11 @@ const ResizeImageForm = () => {
   };
 
   const renderFormLeftSide = () => {
-    return <div className="resize-image-form-left-side"></div>;
+    return (
+      <div className="resize-image-form-left-side">
+        <FileInput />
+      </div>
+    );
   };
 
   const renderFormRightSide = () => {
