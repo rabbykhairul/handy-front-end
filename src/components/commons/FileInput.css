@@ -16,14 +16,16 @@
 }
 
 .file-input .overlay-file-drag-indicator {
-  display: none;
-  position: absolute;
   width: 100%;
   height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffccbc;
   border-right: 0.01vw solid #ffccbc;
   cursor: pointer;
-  z-index: -1;
+  z-index: 999;
 }
 
 .file-input input[type="file"] {
