@@ -34,7 +34,7 @@ const ResizeImageForm = () => {
   const renderFormLeftSide = () => {
     return (
       <div className="resize-image-form-left-side">
-        <FileInput />
+        <FileInput onChange={updateInputData} />
       </div>
     );
   };
