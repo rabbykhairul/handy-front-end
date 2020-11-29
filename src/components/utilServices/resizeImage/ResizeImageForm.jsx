@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../commons/Input";
 import RadioInputGroup from "../../commons/RadioInputGroup";
+import FormButton from "../../commons/FormButton";
 import "./ResizeImageForm.css";
 
 const ResizeImageForm = () => {
@@ -36,7 +37,7 @@ const ResizeImageForm = () => {
     ];
 
     return (
-      <div className="resize-image-form-right-side">
+      <>
         <div className="resize-image-form-row">
           <Input
             type="number"
@@ -63,6 +64,14 @@ const ResizeImageForm = () => {
             onChange={updateInputData}
           />
         </div>
+      </>
+    );
+  };
+
+  const renderFormSubmitButton = () => {
+    return (
+      <div className="resize-image-form-row">
+        <FormButton label="resize image" />
       </div>
     );
   };
@@ -70,7 +79,10 @@ const ResizeImageForm = () => {
   return (
     <form className="resize-image-form" onSubmit={handleSubmit}>
       <div className="resize-image-form-left-side"></div>
-      {renderRemainingInputFields()}
+      <div className="resize-image-form-right-side">
+        {renderRemainingInputFields()}
+        {renderFormSubmitButton()}
+      </div>
     </form>
   );
 };
