@@ -12,6 +12,7 @@
   justify-content: center;
   padding: 2vw 5vw;
   border-right: 0.01vw dashed #232323;
+  cursor: pointer;
 }
 
 .file-input .overlay-file-drag-indicator {
@@ -21,10 +22,12 @@
   height: 100%;
   background-color: #ffccbc;
   border-right: 0.01vw solid #ffccbc;
+  cursor: pointer;
   z-index: -1;
 }
 
 .file-input input[type="file"] {
   position: absolute;
   opacity: 0;
+  cursor: pointer;
 }
