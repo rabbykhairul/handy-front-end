@@ -1,0 +1,12 @@
+.resize-image-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resize-image-content-area {
+  width: 66%;
+  height: 78%;
+  border-radius: 1.25vw;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
