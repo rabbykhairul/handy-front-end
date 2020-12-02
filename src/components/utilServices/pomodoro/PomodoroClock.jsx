@@ -24,7 +24,11 @@ const PomodoroClock = (props) => {
 
     return (
       <div className="clock-control">
-        <FontAwesomeIcon icon={playIcon} onClick={onControlClick} />
+        <FontAwesomeIcon
+          icon={playIcon}
+          onClick={onControlClick}
+          style={{ cursor: "pointer" }}
+        />
       </div>
     );
   };
