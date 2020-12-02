@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PomodoroNavBar from "./PomodoroNavBar";
 import PomodoroClock from "./PomodoroClock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,6 +31,14 @@ const PomodoroSection = () => {
     pomoSettings.pomoTimeInMsec
   );
   const [runningStatus, setRunningStatus] = useState(false);
+
+  // effect hooks
+  useEffect(() => {
+    if (runningStatus)
+      setTimeout(() => {
+        setTimerValueInMSec(timerValueInMSec - 1000);
+      }, 1000);
+  });
 
   // event handlers
   const changeSelectedButton = (button) => {
