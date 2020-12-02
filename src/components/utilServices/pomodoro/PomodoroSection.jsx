@@ -16,6 +16,12 @@ const PomodoroSection = () => {
     { label: <FontAwesomeIcon icon={faCog} />, value: "settings" },
   ];
 
+  const [selectedButton, setSelectedButton] = useState(pomoButtons[0]);
+
+  const changeSelectedButton = (button) => {
+    setSelectedButton(button);
+  };
+
   return (
     <div className="service-section pomodoro-section">
       <div className="card-style-content-area">
