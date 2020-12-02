@@ -17,6 +17,7 @@ const PomodoroSection = () => {
     { label: <FontAwesomeIcon icon={faCog} />, value: "settings" },
   ];
 
+  // pomodoro settings
   const mSecsPerMinutes = 60000;
   const pomoSettings = {
     pomoTimeInMsec: 15 * mSecsPerMinutes,
@@ -24,6 +25,7 @@ const PomodoroSection = () => {
     longBreakTimeInMsec: 10 * mSecsPerMinutes,
   };
 
+  // component state variables
   const [selectedButton, setSelectedButton] = useState(pomoButtons[0]);
 
   const [pomoTimeInMSec, setPomoTimeInMSec] = useState(
