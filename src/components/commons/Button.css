@@ -1,0 +1,25 @@
+.btn {
+  color: #232323;
+  font-size: 0.9vw;
+  font-weight: 500;
+  letter-spacing: 0.035vw;
+  text-transform: lowercase;
+  padding: 0.3vw 0.75vw;
+  background-color: rgb(246, 246, 246);
+  border: 0.1vw solid;
+  border-color: transparent;
+  border-radius: 0.65vw;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+}
+
+.btn:hover,
+.btn-selected {
+  color: #fff;
+  background-color: #232323;
+  border-color: #232323;
+}
+
+.btn:focus {
+  outline: none;
+}
