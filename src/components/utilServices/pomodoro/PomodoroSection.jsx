@@ -42,15 +42,18 @@ const PomodoroSection = () => {
       );
 
     if (timerValueInMSec === 0) {
-      setRunningStatus(false);
-      setTimerValueInMSec(pomoSettings.pomoTimeInMsec);
-      setSelectedButton(pomoButtons[0]);
+      resetTimer();
     }
 
     return () => clearTimeout(timer);
   });
 
   // reset timer to pomodoro's default value once timer reaches zero(0)
+  const resetTimer = () => {
+    setRunningStatus(false);
+    setTimerValueInMSec(pomoSettings.pomoTimeInMsec);
+    setSelectedButton(pomoButtons[0]);
+  };
 
   // event handlers
   const changeSelectedButton = (button) => {
