@@ -27,35 +27,26 @@ const PomodoroSection = () => {
 
   // component state variables
   const [selectedButton, setSelectedButton] = useState(pomoButtons[0]);
-
-  const [pomoTimeInMSec, setPomoTimeInMSec] = useState(
+  const [timerValueInMSec, setTimerValueInMSec] = useState(
     pomoSettings.pomoTimeInMsec
-  );
-
-  const [breakTimeInMSec, setBreakTimeInMSec] = useState(
-    pomoSettings.breakTimeInMsec
-  );
-
-  const [longBreakTimeInMSec, setLongBreakTimeInMSec] = useState(
-    pomoSettings.longBreakTimeInMsec
   );
 
   // event handlers
   const changeSelectedButton = (button) => {
     setSelectedButton(button);
-
-    setPomoTimeInMSec(pomoSettings.pomoTimeInMsec);
-    setBreakTimeInMSec(pomoSettings.breakTimeInMsec);
-    setLongBreakTimeInMSec(pomoSettings.longBreakTimeInMsec);
+    setTimerValueInMSec(getNewTimerValue(button));
   };
 
   // generic methods
-  const getRemainingMiliSeconds = () => {
-    const currentSelection = selectedButton.value;
+  const getNewTimerValue = (button) => {
+    const currentSelection = button.value;
 
-    if (currentSelection === "pomodoro") return pomoTimeInMSec;
-    if (currentSelection === "break") return breakTimeInMSec;
-    if (currentSelection === "long break") return longBreakTimeInMSec;
+    if (currentSelection === "pomodoro") return pomoSettings.pomoTimeInMsec;
+
+    if (currentSelection === "break") return pomoSettings.breakTimeInMsec;
+
+    if (currentSelection === "long break")
+      return pomoSettings.longBreakTimeInMsec;
 
     return 0;
   };
@@ -73,8 +64,7 @@ const PomodoroSection = () => {
   };
 
   const renderPomodoroClock = () => {
-    const milliSeconds = getRemainingMiliSeconds();
-    return <PomodoroClock milliSeconds={milliSeconds} />;
+    return <PomodoroClock milliSeconds={timerValueInMSec} />;
   };
 
   return (
