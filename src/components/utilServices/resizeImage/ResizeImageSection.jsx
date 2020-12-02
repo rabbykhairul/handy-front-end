@@ -5,7 +5,7 @@ import "./ResizeImageSection.css";
 const ResizeImageSection = () => {
   return (
     <div className="service-section resize-image-section">
-      <div className="resize-image-content-area">
+      <div className="card-style-content-area">
         <ResizeImageForm />
       </div>
     </div>
