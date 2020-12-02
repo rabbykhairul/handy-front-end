@@ -30,11 +30,16 @@ const PomodoroSection = () => {
   const [timerValueInMSec, setTimerValueInMSec] = useState(
     pomoSettings.pomoTimeInMsec
   );
+  const [runningStatus, setRunningStatus] = useState(false);
 
   // event handlers
   const changeSelectedButton = (button) => {
     setSelectedButton(button);
     setTimerValueInMSec(getNewTimerValue(button));
+  };
+
+  const toggleRunningStatus = () => {
+    setRunningStatus(!runningStatus);
   };
 
   // generic methods
@@ -64,7 +69,13 @@ const PomodoroSection = () => {
   };
 
   const renderPomodoroClock = () => {
-    return <PomodoroClock milliSeconds={timerValueInMSec} />;
+    return (
+      <PomodoroClock
+        milliSeconds={timerValueInMSec}
+        runningStatus={runningStatus}
+        onControlClick={toggleRunningStatus}
+      />
+    );
   };
 
   return (

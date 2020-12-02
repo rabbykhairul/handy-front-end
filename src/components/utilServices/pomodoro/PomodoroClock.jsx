@@ -4,7 +4,7 @@ import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
 import "./PomodoroClock.css";
 
 const PomodoroClock = (props) => {
-  const { milliSeconds, runningStatus } = props;
+  const { milliSeconds, runningStatus, onControlClick } = props;
 
   let seconds = Math.floor(Number(milliSeconds) / 1000);
   let minutes = Math.floor(seconds / 60);
@@ -24,7 +24,7 @@ const PomodoroClock = (props) => {
 
     return (
       <div className="clock-control">
-        <FontAwesomeIcon icon={playIcon} />
+        <FontAwesomeIcon icon={playIcon} onClick={onControlClick} />
       </div>
     );
   };
