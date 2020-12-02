@@ -9,7 +9,11 @@ class HeroUtilsList extends Component {
       to: "/util-services/resize-image",
       borderColor: "",
     },
-    { label: "Use pomodoro to focus", to: "/", borderColor: "" },
+    {
+      label: "Use pomodoro to focus",
+      to: "/util-services/pomodoro",
+      borderColor: "",
+    },
     { label: "Convert image", to: "/", borderColor: "" },
     { label: "create a to-do list", to: "/", borderColor: "" },
     { label: "Start timer", to: "/", borderColor: "" },

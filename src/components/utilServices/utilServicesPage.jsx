@@ -22,6 +22,7 @@ const renderSelectedServiceSection = (props) => {
         path="/util-services/resize-image"
         component={ResizeImageSection}
       />
+      <Route path="/util-services/pomodoro" render={() => <h1>Pomodoro</h1>} />
     </Switch>
   );
 };
