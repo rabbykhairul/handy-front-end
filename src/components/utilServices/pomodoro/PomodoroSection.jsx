@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import PomodoroNavBar from "./PomodoroNavBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChartBar, faCog } from "@fortawesome/free-solid-svg-icons";
 import "./PomodoroSection.css";
 
 const PomodoroSection = () => {
+  const pomoButtons = [
+    { label: "pomodoro", value: "pomodoro" },
+    { label: "break", value: "break" },
+    { label: "long break", value: "long break" },
+  ];
+
+  const infoButtons = [
+    { label: <FontAwesomeIcon icon={faChartBar} />, value: "stats" },
+    { label: <FontAwesomeIcon icon={faCog} />, value: "settings" },
+  ];
+
   return (
     <div className="service-section pomodoro-section">
-      <div className="card-style-content-area"></div>
+      <div className="card-style-content-area">
+        <PomodoroNavBar
+          leftSideButtons={pomoButtons}
+          rightSideButtons={infoButtons}
+          activeButton={selectedButton}
+          onButtonClick={changeSelectedButton}
+        />
+      </div>
     </div>
   );
 };
