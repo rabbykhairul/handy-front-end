@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import TopNavBar from "../commons/TopNavBar";
 import ResizeImageSection from "./resizeImage/ResizeImageSection";
+import PomodoroSection from "./pomodoro/PomodoroSection";
 import "./utilServicesPage.css";
 
 const UtilServicesPage = (props) => {
@@ -22,7 +23,7 @@ const renderSelectedServiceSection = (props) => {
         path="/util-services/resize-image"
         component={ResizeImageSection}
       />
-      <Route path="/util-services/pomodoro" render={() => <h1>Pomodoro</h1>} />
+      <Route path="/util-services/pomodoro" component={PomodoroSection} />
     </Switch>
   );
 };
