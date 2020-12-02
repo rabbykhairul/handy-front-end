@@ -45,11 +45,7 @@ const PomodoroSection = () => {
         setPrevTime(currentTime);
       }, 250);
 
-    if (
-      timerValueInMSec <= 0 &&
-      selectedButton.value !== "stats" &&
-      selectedButton.value !== "settings"
-    ) {
+    if (resetNeeded()) {
       resetTimer();
     }
 
@@ -61,6 +57,14 @@ const PomodoroSection = () => {
     setRunningStatus(false);
     setTimerValueInMSec(pomoSettings.pomoTimeInMsec);
     setSelectedButton(pomoButtons[0]);
+  };
+
+  const resetNeeded = () => {
+    return (
+      timerValueInMSec <= 0 &&
+      selectedButton.value !== "stats" &&
+      selectedButton.value !== "settings"
+    );
   };
 
   // event handlers
