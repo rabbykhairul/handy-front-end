@@ -31,18 +31,22 @@ const PomodoroSection = () => {
     pomoSettings.pomoTimeInMsec
   );
   const [runningStatus, setRunningStatus] = useState(false);
+  const [prevTime, setPrevTime] = useState(Date.now());
 
   // run timer
   useEffect(() => {
     let timer;
-    if (runningStatus && timerValueInMSec >= 1000)
-      timer = setTimeout(
-        () => setTimerValueInMSec(timerValueInMSec - 1000),
-        1000
-      );
+    if (runningStatus && timerValueInMSec > 0)
+      timer = setTimeout(() => {
+        // setTimerValueInMSec(timerValueInMSec - 1000);
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - prevTime;
+        setTimerValueInMSec(timerValueInMSec - elapsedTime);
+        setPrevTime(currentTime);
+      }, 250);
 
     if (
-      timerValueInMSec === 0 &&
+      timerValueInMSec <= 0 &&
       selectedButton.value !== "stats" &&
       selectedButton.value !== "settings"
     ) {
@@ -67,6 +71,7 @@ const PomodoroSection = () => {
   };
 
   const toggleRunningStatus = () => {
+    if (!runningStatus) setPrevTime(Date.now());
     setRunningStatus(!runningStatus);
   };
 
