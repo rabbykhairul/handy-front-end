@@ -32,18 +32,31 @@ const PomodoroSection = () => {
   );
   const [runningStatus, setRunningStatus] = useState(false);
 
-  // effect hooks
+  // run timer
   useEffect(() => {
-    if (runningStatus)
-      setTimeout(() => {
-        setTimerValueInMSec(timerValueInMSec - 1000);
-      }, 1000);
+    let timer;
+    if (runningStatus && timerValueInMSec >= 1000)
+      timer = setTimeout(
+        () => setTimerValueInMSec(timerValueInMSec - 1000),
+        1000
+      );
+
+    if (timerValueInMSec === 0) {
+      setRunningStatus(false);
+      setTimerValueInMSec(pomoSettings.pomoTimeInMsec);
+      setSelectedButton(pomoButtons[0]);
+    }
+
+    return () => clearTimeout(timer);
   });
+
+  // reset timer to pomodoro's default value once timer reaches zero(0)
 
   // event handlers
   const changeSelectedButton = (button) => {
-    setSelectedButton(button);
+    setRunningStatus(false);
     setTimerValueInMSec(getNewTimerValue(button));
+    setSelectedButton(button);
   };
 
   const toggleRunningStatus = () => {
