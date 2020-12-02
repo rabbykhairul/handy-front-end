@@ -22,16 +22,20 @@ const PomodoroSection = () => {
     setSelectedButton(button);
   };
 
+  const renderPomodoroNavBar = () => {
+    return (
+      <PomodoroNavBar
+        leftSideButtons={pomoButtons}
+        rightSideButtons={infoButtons}
+        activeButton={selectedButton}
+        onButtonClick={changeSelectedButton}
+      />
+    );
+  };
+
   return (
     <div className="service-section pomodoro-section">
-      <div className="card-style-content-area">
-        <PomodoroNavBar
-          leftSideButtons={pomoButtons}
-          rightSideButtons={infoButtons}
-          activeButton={selectedButton}
-          onButtonClick={changeSelectedButton}
-        />
-      </div>
+      <div className="card-style-content-area">{renderPomodoroNavBar()}</div>
     </div>
   );
 };
