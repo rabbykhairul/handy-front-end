@@ -41,7 +41,11 @@ const PomodoroSection = () => {
         1000
       );
 
-    if (timerValueInMSec === 0) {
+    if (
+      timerValueInMSec === 0 &&
+      selectedButton.value !== "stats" &&
+      selectedButton.value !== "settings"
+    ) {
       resetTimer();
     }
 
