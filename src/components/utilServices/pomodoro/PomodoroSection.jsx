@@ -3,6 +3,7 @@ import PomodoroNavBar from "./PomodoroNavBar";
 import PomodoroClock from "./PomodoroClock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartBar, faCog } from "@fortawesome/free-solid-svg-icons";
+import notificationSound from "../../../mediaFiles/goes-without-saying-608.mp3";
 import "./PomodoroSection.css";
 
 const PomodoroSection = () => {
@@ -32,6 +33,7 @@ const PomodoroSection = () => {
   );
   const [runningStatus, setRunningStatus] = useState(false);
   const [prevTime, setPrevTime] = useState(Date.now());
+  const [audio] = useState(new Audio(notificationSound));
 
   // run timer
   useEffect(() => {
@@ -54,6 +56,7 @@ const PomodoroSection = () => {
 
   // reset timer to pomodoro's default value once timer reaches zero(0)
   const resetTimer = () => {
+    audio.play();
     setRunningStatus(false);
     setTimerValueInMSec(pomoSettings.pomoTimeInMsec);
     setSelectedButton(pomoButtons[0]);
