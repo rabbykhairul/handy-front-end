@@ -40,7 +40,6 @@ const PomodoroSection = () => {
     let timer;
     if (runningStatus && timerValueInMSec > 0)
       timer = setTimeout(() => {
-        // setTimerValueInMSec(timerValueInMSec - 1000);
         const currentTime = Date.now();
         const elapsedTime = currentTime - prevTime;
         setTimerValueInMSec(timerValueInMSec - elapsedTime);
