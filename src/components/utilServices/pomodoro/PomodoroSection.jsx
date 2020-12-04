@@ -84,6 +84,8 @@ const PomodoroSection = () => {
 
   const updatePomoSettings = (newPomoSettings) => {
     setPomoSettings(newPomoSettings);
+    setTimerValueInMSec(newPomoSettings.pomoTimeInMsec);
+    setSelectedButton(pomoButtons[0]);
   };
 
   // generic methods
