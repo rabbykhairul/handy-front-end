@@ -3,7 +3,11 @@ import Input from "../../commons/Input";
 import FormButton from "../../commons/FormButton";
 import "./PomodoroSettings.css";
 
-const PomodoroSettings = () => {
+const PomodoroSettings = (props) => {
+  const { pomoSettings } = props;
+  const { pomoTimeInMsec, breakTimeInMsec, longBreakTimeInMsec } = pomoSettings;
+  const mSecsPerMinutes = 60000;
+
   // Handle settings form submission
   const handleSettingsFormSubmission = (e) => {
     e.preventDefault();
@@ -12,24 +16,28 @@ const PomodoroSettings = () => {
 
   // Helpers methods for rendering
   const renderSettingsInputFields = () => {
+    const pomoTimeInMinutes = pomoTimeInMsec / mSecsPerMinutes;
+    const breakTimeInMinutes = breakTimeInMsec / mSecsPerMinutes;
+    const longBreakTimeInMinutes = longBreakTimeInMsec / mSecsPerMinutes;
+
     return (
       <>
         <Input
           type="number"
           label="Pomodoro time (in minutes)"
-          value="15"
+          value={pomoTimeInMinutes}
           onChange={() => null}
         />
         <Input
           type="number"
           label="Break time"
-          value="5"
+          value={breakTimeInMinutes}
           onChange={() => null}
         />
         <Input
           type="number"
           label="Long break time"
-          value="10"
+          value={longBreakTimeInMinutes}
           onChange={() => null}
         />
       </>

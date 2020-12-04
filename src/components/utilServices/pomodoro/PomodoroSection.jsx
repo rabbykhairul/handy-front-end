@@ -127,7 +127,8 @@ const PomodoroSection = () => {
   };
 
   const renderPomodoroSettings = () => {
-    if (selectedButton.value === "settings") return <PomodoroSettings />;
+    if (selectedButton.value === "settings")
+      return <PomodoroSettings pomoSettings={pomoSettings} />;
     return null;
   };
 
