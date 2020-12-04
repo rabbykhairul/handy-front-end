@@ -4,7 +4,7 @@ import FormButton from "../../commons/FormButton";
 import "./PomodoroSettings.css";
 
 const PomodoroSettings = (props) => {
-  const { pomoSettings } = props;
+  const { pomoSettings, onEdit } = props;
   const { pomoTimeInMsec, breakTimeInMsec, longBreakTimeInMsec } = pomoSettings;
 
   // convert timer values from milliseconds to minutes
@@ -36,8 +36,7 @@ const PomodoroSettings = (props) => {
   const handleSettingsFormSubmission = (e) => {
     e.preventDefault();
     const newPomoSettingsInMinutes = convertUserEditedPomoSettingsToMinutes();
-    console.log(newPomoSettingsInMinutes);
-    console.log("Submitted");
+    onEdit(newPomoSettingsInMinutes);
   };
 
   // convert the user edited inputs times back into milliseconds before saving the settings

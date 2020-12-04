@@ -82,6 +82,10 @@ const PomodoroSection = () => {
     setRunningStatus(!runningStatus);
   };
 
+  const updatePomoSettings = (newPomoSettings) => {
+    setPomoSettings(newPomoSettings);
+  };
+
   // generic methods
   const getNewTimerValue = (button) => {
     const currentSelection = button.value;
@@ -128,7 +132,12 @@ const PomodoroSection = () => {
 
   const renderPomodoroSettings = () => {
     if (selectedButton.value === "settings")
-      return <PomodoroSettings pomoSettings={pomoSettings} />;
+      return (
+        <PomodoroSettings
+          pomoSettings={pomoSettings}
+          onEdit={updatePomoSettings}
+        />
+      );
     return null;
   };
 
