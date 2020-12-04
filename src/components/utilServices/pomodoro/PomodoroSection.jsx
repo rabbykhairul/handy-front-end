@@ -95,6 +95,12 @@ const PomodoroSection = () => {
     return 0;
   };
 
+  const switchedToSettingsOrStatsButton = () => {
+    return (
+      selectedButton.value === "settings" || selectedButton.value === "stats"
+    );
+  };
+
   // helper methods for rendering
   const renderPomodoroNavBar = () => {
     return (
@@ -108,6 +114,8 @@ const PomodoroSection = () => {
   };
 
   const renderPomodoroClock = () => {
+    if (switchedToSettingsOrStatsButton()) return null;
+
     return (
       <PomodoroClock
         milliSeconds={timerValueInMSec}
