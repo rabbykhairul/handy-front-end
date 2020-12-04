@@ -32,12 +32,12 @@ const PomodoroSettings = (props) => {
   // handle settings form submission
   const handleSettingsFormSubmission = (e) => {
     e.preventDefault();
-    const newPomoSettingsInMinutes = convertUserEditedPomoSettingsToMinutes();
-    onEdit(newPomoSettingsInMinutes);
+    const newPomoSettingsInMsec = convertUserEditedPomoSettingsToMsec();
+    onEdit(newPomoSettingsInMsec);
   };
 
   // convert the user edited inputs times back into milliseconds before saving the settings
-  const convertUserEditedPomoSettingsToMinutes = () => {
+  const convertUserEditedPomoSettingsToMsec = () => {
     const {
       pomoTimeInMinutes,
       breakTimeInMinutes,
