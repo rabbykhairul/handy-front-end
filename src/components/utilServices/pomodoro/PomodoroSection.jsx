@@ -137,12 +137,7 @@ const PomodoroSection = () => {
 
   const renderPomodoroSettings = () => {
     if (selectedButton.value === "settings")
-      return (
-        <PomodoroSettings
-          pomoSettings={pomoSettings}
-          onEdit={updatePomoSettings}
-        />
-      );
+      return <PomodoroSettings onEdit={updatePomoSettings} />;
     return null;
   };
 

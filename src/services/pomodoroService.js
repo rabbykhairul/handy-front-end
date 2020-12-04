@@ -53,4 +53,9 @@ const getPomoSettingsInMSec = () => {
   };
 };
 
-export { getDefaultPomoSettings, savePomoSettings, getPomoSettingsInMSec };
+export {
+  getDefaultPomoSettings,
+  savePomoSettings,
+  getSavedPomoSettings,
+  getPomoSettingsInMSec,
+};

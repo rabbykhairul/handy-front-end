@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   getDefaultPomoSettings,
+  getSavedPomoSettings,
   savePomoSettings,
 } from "../../../services/pomodoroService";
 import Input from "../../commons/Input";
@@ -8,18 +9,10 @@ import FormButton from "../../commons/FormButton";
 import "./PomodoroSettings.css";
 
 const PomodoroSettings = (props) => {
-  const { pomoSettings, onEdit } = props;
-  const { pomoTimeInMsec, breakTimeInMsec, longBreakTimeInMsec } = pomoSettings;
-
-  // convert timer values from milliseconds to minutes
+  const { onEdit } = props;
   const mSecsPerMinutes = 60000;
 
-  // store the converted timer values into state variable
-  const [convertedPomoSettings, setConvertedPomoSettings] = useState({
-    pomoTimeInMinutes: pomoTimeInMsec / mSecsPerMinutes,
-    breakTimeInMinutes: breakTimeInMsec / mSecsPerMinutes,
-    longBreakTimeInMinutes: longBreakTimeInMsec / mSecsPerMinutes,
-  });
+  const [pomoSettings, setPomoSettings] = useState(getSavedPomoSettings());
 
   // default pomodoro settings
   const defaultPomoSettings = getDefaultPomoSettings();
@@ -27,9 +20,9 @@ const PomodoroSettings = (props) => {
   // update settings data as user edits the form
   const updateInputField = (e) => {
     const inputField = e.currentTarget;
-    const newPomoSettings = { ...convertedPomoSettings };
+    const newPomoSettings = { ...pomoSettings };
     newPomoSettings[inputField.name] = inputField.value;
-    setConvertedPomoSettings(newPomoSettings);
+    setPomoSettings(newPomoSettings);
   };
 
   // handle settings form submission
@@ -50,7 +43,7 @@ const PomodoroSettings = (props) => {
       pomoTimeInMinutes,
       breakTimeInMinutes,
       longBreakTimeInMinutes,
-    } = convertedPomoSettings;
+    } = pomoSettings;
 
     const {
       defaultPomoTimeInMinutes,
@@ -86,7 +79,7 @@ const PomodoroSettings = (props) => {
       pomoTimeInMinutes,
       breakTimeInMinutes,
       longBreakTimeInMinutes,
-    } = convertedPomoSettings;
+    } = pomoSettings;
 
     const {
       defaultPomoTimeInMinutes,
