@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { getDefaultPomoSettings } from "../../../services/pomodoroService";
+import {
+  getDefaultPomoSettings,
+  savePomoSettings,
+} from "../../../services/pomodoroService";
 import Input from "../../commons/Input";
 import FormButton from "../../commons/FormButton";
 import "./PomodoroSettings.css";
@@ -32,12 +35,17 @@ const PomodoroSettings = (props) => {
   // handle settings form submission
   const handleSettingsFormSubmission = (e) => {
     e.preventDefault();
-    const newPomoSettingsInMsec = convertUserEditedPomoSettingsToMsec();
+
+    const newPomoSettingsInMinutes = getUserEditedPomoSettings();
+    savePomoSettings(newPomoSettingsInMinutes);
+
+    const newPomoSettingsInMsec = convertUserEditedPomoSettingsToMsec(
+      newPomoSettingsInMinutes
+    );
     onEdit(newPomoSettingsInMsec);
   };
 
-  // convert the user edited inputs times back into milliseconds before saving the settings
-  const convertUserEditedPomoSettingsToMsec = () => {
+  const getUserEditedPomoSettings = () => {
     const {
       pomoTimeInMinutes,
       breakTimeInMinutes,
@@ -51,13 +59,24 @@ const PomodoroSettings = (props) => {
     } = defaultPomoSettings;
 
     return {
-      pomoTimeInMsec:
-        (pomoTimeInMinutes || defaultPomoTimeInMinutes) * mSecsPerMinutes,
-      breakTimeInMsec:
-        (breakTimeInMinutes || defaultBreakTimeInMinutes) * mSecsPerMinutes,
-      longBreakTimeInMsec:
-        (longBreakTimeInMinutes || defaultLongBreakTimeInMinutes) *
-        mSecsPerMinutes,
+      pomoTimeInMinutes: pomoTimeInMinutes || defaultPomoTimeInMinutes,
+      breakTimeInMinutes: breakTimeInMinutes || defaultBreakTimeInMinutes,
+      longBreakTimeInMinutes:
+        longBreakTimeInMinutes || defaultLongBreakTimeInMinutes,
+    };
+  };
+
+  // convert the user edited inputs times back into milliseconds before saving the settings
+  const convertUserEditedPomoSettingsToMsec = (editedSettings) => {
+    const {
+      pomoTimeInMinutes,
+      breakTimeInMinutes,
+      longBreakTimeInMinutes,
+    } = editedSettings;
+    return {
+      pomoTimeInMsec: pomoTimeInMinutes * mSecsPerMinutes,
+      breakTimeInMsec: breakTimeInMinutes * mSecsPerMinutes,
+      longBreakTimeInMsec: longBreakTimeInMinutes * mSecsPerMinutes,
     };
   };
 
