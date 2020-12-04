@@ -1,9 +1,9 @@
 import React from "react";
-import { getUsageStats } from "../../../services/pomodoroService";
+import { getFormattedUsageStats } from "../../../services/pomodoroService";
 import "./PomodoroStats.css";
 
 const PomodoroStats = () => {
-  const { today, yesterday, grandTotal } = getUsageStats();
+  const { today, yesterday, grandTotal } = getFormattedUsageStats();
 
   const renderTodaysUsageInfo = () => {
     return (

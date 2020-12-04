@@ -193,6 +193,46 @@ const getUsageStats = () => {
   };
 };
 
+const getHoursString = (hours) => {
+  const hourStr = `${hours}`;
+  if (hourStr.length >= 2) return `${hourStr} hours`;
+  if (hourStr === "0") return "";
+  if (hourStr === "1") return `0${hourStr} hour`;
+  return `0${hourStr} hours`;
+};
+
+const getMinutesString = (minutes) => {
+  const minuteStr = `${minutes}`;
+  if (minuteStr.length == 2) return `${minuteStr} minutes`;
+  if (minuteStr === "0") return "";
+  if (minuteStr === "1") return `0${minuteStr} minute`;
+  return `0${minuteStr} minutes`;
+};
+
+const getStringFormat = (milliseconds) => {
+  const totalMinutes = Math.floor(milliseconds / mSecsPerMinutes);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  const hourStr = getHoursString(hours);
+  const minuteStr = getMinutesString(minutes);
+
+  const strFormat = `${hourStr} ${
+    hourStr && minuteStr ? "and" : ""
+  } ${minuteStr}`;
+
+  return strFormat.trim().length === 0 ? "......................." : strFormat;
+};
+
+const getFormattedUsageStats = () => {
+  const usageStats = getUsageStats();
+  return {
+    today: getStringFormat(usageStats.today),
+    yesterday: getStringFormat(usageStats.yesterday),
+    grandTotal: getStringFormat(usageStats.grandTotal),
+  };
+};
+
 export {
   getDefaultPomoSettings,
   savePomoSettings,
@@ -200,4 +240,5 @@ export {
   getPomoSettingsInMSec,
   addToUsageStats,
   getUsageStats,
+  getFormattedUsageStats,
 };
