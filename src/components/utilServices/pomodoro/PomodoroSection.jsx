@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PomodoroNavBar from "./PomodoroNavBar";
 import PomodoroClock from "./PomodoroClock";
+import PomodoroStats from "./PomodoroStats";
 import PomodoroSettings from "./PomodoroSettings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartBar, faCog } from "@fortawesome/free-solid-svg-icons";
@@ -132,6 +133,11 @@ const PomodoroSection = () => {
     );
   };
 
+  const renderPomodoroStats = () => {
+    if (selectedButton.value === "stats") return <PomodoroStats />;
+    return null;
+  };
+
   const renderPomodoroSettings = () => {
     if (selectedButton.value === "settings")
       return (
@@ -148,6 +154,7 @@ const PomodoroSection = () => {
       <div className="card-style-content-area">
         {renderPomodoroNavBar()}
         {renderPomodoroClock()}
+        {renderPomodoroStats()}
         {renderPomodoroSettings()}
       </div>
     </div>
