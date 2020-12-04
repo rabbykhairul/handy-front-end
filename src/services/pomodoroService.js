@@ -1,3 +1,5 @@
+const POMO_SETTINGS_LOCAL_KEY = "pomoSettings";
+
 // default pomodoro timer settings in minutes
 const defaultPomoSettings = {
   defaultPomoTimeInMinutes: 25,
@@ -8,7 +10,30 @@ const defaultPomoSettings = {
 const getDefaultPomoSettings = () => ({ ...defaultPomoSettings });
 
 const savePomoSettings = (editedPomoSettings) => {
-  localStorage.setItem("pomoSettings", JSON.stringify(editedPomoSettings));
+  localStorage.setItem(
+    POMO_SETTINGS_LOCAL_KEY,
+    JSON.stringify(editedPomoSettings)
+  );
+};
+
+const getSavedPomoSettings = () => {
+  const pomoSettings = JSON.parse(
+    localStorage.getItem(POMO_SETTINGS_LOCAL_KEY)
+  );
+
+  if (pomoSettings) return pomoSettings;
+
+  const {
+    defaultPomoTimeInMinutes,
+    defaultBreakTimeInMinutes,
+    defaultLongBreakTimeInMinutes,
+  } = getDefaultPomoSettings();
+
+  return {
+    pomoTimeInMinutes: defaultPomoTimeInMinutes,
+    breakTimeInMinutes: defaultBreakTimeInMinutes,
+    longBreakTimeInMinutes: defaultLongBreakTimeInMinutes,
+  };
 };
 
 // returns the current pomodoro timer settings from the local storage in milliseconds
