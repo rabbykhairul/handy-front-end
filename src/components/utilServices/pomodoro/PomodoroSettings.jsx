@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getDefaultPomoSettings } from "../../../services/pomodoroService";
 import Input from "../../commons/Input";
 import FormButton from "../../commons/FormButton";
 import "./PomodoroSettings.css";
@@ -18,11 +19,7 @@ const PomodoroSettings = (props) => {
   });
 
   // default pomodoro settings
-  const defaultPomoSettings = {
-    defaultPomoTimeInMinutes: 25,
-    defaultBreakTimeInMinutes: 5,
-    defaultLongBreakTimeInMinutes: 10,
-  };
+  const defaultPomoSettings = getDefaultPomoSettings();
 
   // update settings data as user edits the form
   const updateInputField = (e) => {
