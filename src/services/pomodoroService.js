@@ -148,9 +148,6 @@ const todayIsNowYesterday = (todaysDateString) => {
 };
 
 const yesterdayHasExpired = (yesterdaysDateString) => {
-  const yesterdaysDate = new Date(yesterdaysDateString);
-  const currentDate = new Date();
-
   return (
     moreThanOneDayHasPassedInTheSameMonth(yesterdaysDateString) ||
     moreThanOneDayHasPassedBetweenTwoConsecutiveMonths(yesterdaysDateString) ||
@@ -203,7 +200,7 @@ const getHoursString = (hours) => {
 
 const getMinutesString = (minutes) => {
   const minuteStr = `${minutes}`;
-  if (minuteStr.length == 2) return `${minuteStr} minutes`;
+  if (minuteStr.length === 2) return `${minuteStr} minutes`;
   if (minuteStr === "0") return "";
   if (minuteStr === "1") return `0${minuteStr} minute`;
   return `0${minuteStr} minutes`;
