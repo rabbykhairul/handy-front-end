@@ -17,6 +17,13 @@ const PomodoroSettings = (props) => {
     longBreakTimeInMinutes: longBreakTimeInMsec / mSecsPerMinutes,
   });
 
+  // default pomodoro settings
+  const defaultPomoSettings = {
+    defaultPomoTimeInMinutes: 25,
+    defaultBreakTimeInMinute: 5,
+    defaultLongBreakTimeInMinutes: 10,
+  };
+
   // update settings data as user edits the form
   const updateInputField = (e) => {
     const inputField = e.currentTarget;
@@ -39,6 +46,12 @@ const PomodoroSettings = (props) => {
       longBreakTimeInMinutes,
     } = convertedPomoSettings;
 
+    const {
+      defaultPomoTimeInMinutes,
+      defaultBreakTimeInMinute,
+      defaultLongBreakTimeInMinutes,
+    } = defaultPomoSettings;
+
     return (
       <>
         <Input
@@ -46,6 +59,7 @@ const PomodoroSettings = (props) => {
           label="Pomodoro time (in minutes)"
           name="pomoTimeInMinutes"
           value={pomoTimeInMinutes}
+          placeholder={defaultPomoTimeInMinutes}
           onChange={updateInputField}
         />
         <Input
@@ -53,6 +67,7 @@ const PomodoroSettings = (props) => {
           label="Break time"
           name="breakTimeInMinutes"
           value={breakTimeInMinutes}
+          placeholder={defaultBreakTimeInMinute}
           onChange={updateInputField}
         />
         <Input
@@ -60,6 +75,7 @@ const PomodoroSettings = (props) => {
           label="Long break time"
           name="longBreakTimeInMinutes"
           value={longBreakTimeInMinutes}
+          placeholder={defaultLongBreakTimeInMinutes}
           onChange={updateInputField}
         />
       </>
