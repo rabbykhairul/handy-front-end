@@ -20,7 +20,7 @@ const PomodoroSettings = (props) => {
   // default pomodoro settings
   const defaultPomoSettings = {
     defaultPomoTimeInMinutes: 25,
-    defaultBreakTimeInMinute: 5,
+    defaultBreakTimeInMinutes: 5,
     defaultLongBreakTimeInMinutes: 10,
   };
 
@@ -48,7 +48,7 @@ const PomodoroSettings = (props) => {
 
     const {
       defaultPomoTimeInMinutes,
-      defaultBreakTimeInMinute,
+      defaultBreakTimeInMinutes,
       defaultLongBreakTimeInMinutes,
     } = defaultPomoSettings;
 
@@ -67,7 +67,7 @@ const PomodoroSettings = (props) => {
           label="Break time"
           name="breakTimeInMinutes"
           value={breakTimeInMinutes}
-          placeholder={defaultBreakTimeInMinute}
+          placeholder={defaultBreakTimeInMinutes}
           onChange={updateInputField}
         />
         <Input
