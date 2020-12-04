@@ -166,11 +166,11 @@ const refreshUsageStats = () => {
   if (todayHasPassed(todaysUsage.date))
     updatedUsageStats.todaysUsage = { date: currentDate, total: 0 };
 
-  if (todayIsNowYesterday(todaysUsage.date))
-    updatedUsageStats.yesterdaysUsage = { ...todaysUsage };
-
   if (yesterdayHasExpired(yesterdaysUsage.date))
     updatedUsageStats.yesterdaysUsage = { ...yesterdaysUsage, total: 0 };
+
+  if (todayIsNowYesterday(todaysUsage.date))
+    updatedUsageStats.yesterdaysUsage = { ...todaysUsage };
 
   return updatedUsageStats;
 };
@@ -184,10 +184,20 @@ const addToUsageStats = (elapsedTimeInMsec) => {
   localStorage.setItem(USAGE_STATS_LOCAL_KEY, JSON.stringify(usageStats));
 };
 
+const getUsageStats = () => {
+  const usageStats = { ...getStoredUsageStats() };
+  return {
+    today: usageStats.todaysUsage.total,
+    yesterday: usageStats.yesterdaysUsage.total,
+    grandTotal: usageStats.grandTotalUsage.total,
+  };
+};
+
 export {
   getDefaultPomoSettings,
   savePomoSettings,
   getSavedPomoSettings,
   getPomoSettingsInMSec,
   addToUsageStats,
+  getUsageStats,
 };
