@@ -35,7 +35,34 @@ const PomodoroSettings = (props) => {
   // handle settings form submission
   const handleSettingsFormSubmission = (e) => {
     e.preventDefault();
+    const newPomoSettingsInMinutes = convertUserEditedPomoSettingsToMinutes();
+    console.log(newPomoSettingsInMinutes);
     console.log("Submitted");
+  };
+
+  // convert the user edited inputs times back into milliseconds before saving the settings
+  const convertUserEditedPomoSettingsToMinutes = () => {
+    const {
+      pomoTimeInMinutes,
+      breakTimeInMinutes,
+      longBreakTimeInMinutes,
+    } = convertedPomoSettings;
+
+    const {
+      defaultPomoTimeInMinutes,
+      defaultBreakTimeInMinutes,
+      defaultLongBreakTimeInMinutes,
+    } = defaultPomoSettings;
+
+    return {
+      pomoTimeInMsec:
+        (pomoTimeInMinutes || defaultPomoTimeInMinutes) * mSecsPerMinutes,
+      breakTimeInMsec:
+        (breakTimeInMinutes || defaultBreakTimeInMinutes) * mSecsPerMinutes,
+      longBreakTimeInMsec:
+        (longBreakTimeInMinutes || defaultLongBreakTimeInMinutes) *
+        mSecsPerMinutes,
+    };
   };
 
   // helpers methods for rendering
