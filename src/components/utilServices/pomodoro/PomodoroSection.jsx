@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getPomoSettingsInMSec } from "../../../services/pomodoroService";
 import PomodoroNavBar from "./PomodoroNavBar";
 import PomodoroClock from "./PomodoroClock";
 import PomodoroStats from "./PomodoroStats";
@@ -25,11 +26,7 @@ const PomodoroSection = () => {
 
   // component state variables
   const [selectedButton, setSelectedButton] = useState(pomoButtons[0]);
-  const [pomoSettings, setPomoSettings] = useState({
-    pomoTimeInMsec: 15 * mSecsPerMinutes,
-    breakTimeInMsec: 5 * mSecsPerMinutes,
-    longBreakTimeInMsec: 10 * mSecsPerMinutes,
-  });
+  const [pomoSettings, setPomoSettings] = useState(getPomoSettingsInMSec());
   const [timerValueInMSec, setTimerValueInMSec] = useState(
     pomoSettings.pomoTimeInMsec
   );

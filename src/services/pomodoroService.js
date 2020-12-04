@@ -1,4 +1,5 @@
 const POMO_SETTINGS_LOCAL_KEY = "pomoSettings";
+const mSecsPerMinutes = 60000;
 
 // default pomodoro timer settings in minutes
 const defaultPomoSettings = {
@@ -38,6 +39,18 @@ const getSavedPomoSettings = () => {
 
 // returns the current pomodoro timer settings from the local storage in milliseconds
 // if settings isn't saved in local storage return default settings in milliseconds
-const getPomoSettingsInMSec = () => {};
+const getPomoSettingsInMSec = () => {
+  const {
+    pomoTimeInMinutes,
+    breakTimeInMinutes,
+    longBreakTimeInMinutes,
+  } = getSavedPomoSettings();
+
+  return {
+    pomoTimeInMsec: pomoTimeInMinutes * mSecsPerMinutes,
+    breakTimeInMsec: breakTimeInMinutes * mSecsPerMinutes,
+    longBreakTimeInMsec: longBreakTimeInMinutes * mSecsPerMinutes,
+  };
+};
 
 export { getDefaultPomoSettings, savePomoSettings, getPomoSettingsInMSec };
