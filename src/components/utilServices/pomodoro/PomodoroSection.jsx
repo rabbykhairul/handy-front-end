@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PomodoroNavBar from "./PomodoroNavBar";
 import PomodoroClock from "./PomodoroClock";
+import PomodoroSettings from "./PomodoroSettings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartBar, faCog } from "@fortawesome/free-solid-svg-icons";
 import notificationSound from "../../../mediaFiles/goes-without-saying-608.mp3";
@@ -20,14 +21,14 @@ const PomodoroSection = () => {
 
   // pomodoro settings
   const mSecsPerMinutes = 60000;
-  const pomoSettings = {
-    pomoTimeInMsec: 15 * mSecsPerMinutes,
-    breakTimeInMsec: 5 * mSecsPerMinutes,
-    longBreakTimeInMsec: 10 * mSecsPerMinutes,
-  };
 
   // component state variables
   const [selectedButton, setSelectedButton] = useState(pomoButtons[0]);
+  const [pomoSettings, setPomoSettings] = useState({
+    pomoTimeInMsec: 15 * mSecsPerMinutes,
+    breakTimeInMsec: 5 * mSecsPerMinutes,
+    longBreakTimeInMsec: 10 * mSecsPerMinutes,
+  });
   const [timerValueInMSec, setTimerValueInMSec] = useState(
     pomoSettings.pomoTimeInMsec
   );
@@ -125,11 +126,17 @@ const PomodoroSection = () => {
     );
   };
 
+  const renderPomodoroSettings = () => {
+    if (selectedButton.value === "settings") return <PomodoroSettings />;
+    return null;
+  };
+
   return (
     <div className="service-section pomodoro-section">
       <div className="card-style-content-area">
         {renderPomodoroNavBar()}
         {renderPomodoroClock()}
+        {renderPomodoroSettings()}
       </div>
     </div>
   );
