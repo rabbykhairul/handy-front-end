@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getPomoSettingsInMSec } from "../../../services/pomodoroService";
+import {
+  addToUsageStats,
+  getPomoSettingsInMSec,
+} from "../../../services/pomodoroService";
 import PomodoroNavBar from "./PomodoroNavBar";
 import PomodoroClock from "./PomodoroClock";
 import PomodoroStats from "./PomodoroStats";
@@ -21,9 +24,6 @@ const PomodoroSection = () => {
     { label: <FontAwesomeIcon icon={faCog} />, value: "settings" },
   ];
 
-  // pomodoro settings
-  const mSecsPerMinutes = 60000;
-
   // component state variables
   const [selectedButton, setSelectedButton] = useState(pomoButtons[0]);
   const [pomoSettings, setPomoSettings] = useState(getPomoSettingsInMSec());
@@ -43,6 +43,7 @@ const PomodoroSection = () => {
         const elapsedTime = currentTime - prevTime;
         setTimerValueInMSec(timerValueInMSec - elapsedTime);
         setPrevTime(currentTime);
+        if (pomodoroRunning()) addToUsageStats(elapsedTime);
       }, 250);
 
     if (resetNeeded()) {
@@ -51,6 +52,8 @@ const PomodoroSection = () => {
 
     return () => clearTimeout(timer);
   });
+
+  const pomodoroRunning = () => selectedButton.value === "pomodoro";
 
   // reset timer to pomodoro's default value once timer reaches zero(0)
   const resetTimer = () => {
