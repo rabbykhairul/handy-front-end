@@ -1,4 +1,5 @@
 const POMO_SETTINGS_LOCAL_KEY = "pomoSettings";
+const USAGE_STATS_LOCAL_KEY = "usageStats";
 const mSecsPerMinutes = 60000;
 
 // default pomodoro timer settings in minutes
@@ -53,9 +54,27 @@ const getPomoSettingsInMSec = () => {
   };
 };
 
+const initializeUsageStats = () => {
+  const storedUsageStats = JSON.parse(
+    localStorage.getItem(USAGE_STATS_LOCAL_KEY)
+  );
+  if (storedUsageStats) return;
+
+  const newUsageStats = {
+    todaysUsage: { date: new Date(), total: 0 },
+    yesterdaysUsage: { date: new Date(), total: 0 },
+    grandTotalUsage: { total: 0 },
+  };
+
+  localStorage.setItem(USAGE_STATS_LOCAL_KEY, JSON.stringify(newUsageStats));
+};
+
+initializeUsageStats();
+
 export {
   getDefaultPomoSettings,
   savePomoSettings,
   getSavedPomoSettings,
   getPomoSettingsInMSec,
+  addToUsageStats,
 };
