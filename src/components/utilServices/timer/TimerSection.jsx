@@ -4,6 +4,7 @@ import TimerClock from "./TimerClock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUndo, faCog } from "@fortawesome/free-solid-svg-icons";
 import "./TimerSection.css";
+import TimerSettings from "./TimerSettings";
 
 const TimerSection = () => {
   const timerButtons = [{ label: "Timer", value: "timer" }];
@@ -34,6 +35,10 @@ const TimerSection = () => {
 
   const toggleRunningStatus = () => {
     setRunningStatus(!runningStatus);
+  };
+
+  const updateTimerDuration = (milliSeconds) => {
+    setTimerDurationInMsec(milliSeconds);
   };
 
   // generic methods
@@ -72,11 +77,23 @@ const TimerSection = () => {
     );
   };
 
+  const renderTimerSettings = () => {
+    if (selectedButton.value === "settings")
+      return (
+        <TimerSettings
+          timerDurationInMsec={timerDurationInMsec}
+          onEdit={updateTimerDuration}
+        />
+      );
+    return null;
+  };
+
   return (
     <div className="service-section timer-section">
       <div className="card-style-content-area">
         {renderTimerNavBar()}
         {renderTimerClock()}
+        {renderTimerSettings()}
       </div>
     </div>
   );
