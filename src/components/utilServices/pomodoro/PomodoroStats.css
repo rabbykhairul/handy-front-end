@@ -15,14 +15,14 @@
   height: fit-content;
   display: flex;
   justify-content: space-between;
-  padding: 2.15vw 0;
+  padding: 1.5vw 0;
   border-bottom: 0.01vw solid;
   border-color: #232323;
   border-collapse: collapse;
 }
 
 .pomodoro-stats-text {
-  font-size: 0.95vw;
-  font-weight: 400;
-  letter-spacing: 0.05vw;
+  font-size: 0.85vw;
+  font-weight: 500;
+  letter-spacing: 0.035vw;
 }
