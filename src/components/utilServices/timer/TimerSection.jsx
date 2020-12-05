@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TimerNavBar from "./TimerNavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUndo, faCog } from "@fortawesome/free-solid-svg-icons";
@@ -12,9 +12,12 @@ const TimerSection = () => {
     { label: <FontAwesomeIcon icon={faCog} />, value: "settings" },
   ];
 
+  // state variables
+  const [selectedButton, setSelectedButton] = useState(timerButtons[0]);
+
   // event handlers
   const changeSelectedButton = (button) => {
-    console.log(button);
+    setSelectedButton(button);
   };
 
   // helper methods for rendering
@@ -23,7 +26,7 @@ const TimerSection = () => {
       <TimerNavBar
         leftSideButtons={timerButtons}
         rightSideButtons={infoButtons}
-        activeButton={timerButtons[0]}
+        activeButton={selectedButton}
         onButtonClick={changeSelectedButton}
       />
     );
