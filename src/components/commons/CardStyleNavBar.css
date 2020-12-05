@@ -1,0 +1,30 @@
+.card-style-nav-bar {
+  width: 100%;
+  height: fit-content;
+  padding: 1.5vw 2.5vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-style-nav-bar-left-side,
+.card-style-nav-bar-right-side {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.card-style-nav-bar-left-side {
+  justify-content: flex-start;
+}
+
+.card-style-nav-bar-right-side {
+  justify-content: flex-end;
+}
+
+.card-style-nav-bar-left-side div {
+  margin-right: 0.75vw;
+}
+
+.card-style-nav-bar-right-side div {
+  margin-left: 0.75vw;
+}
