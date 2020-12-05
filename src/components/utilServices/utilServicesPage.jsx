@@ -24,6 +24,7 @@ const renderSelectedServiceSection = (props) => {
         component={ResizeImageSection}
       />
       <Route path="/util-services/pomodoro" component={PomodoroSection} />
+      <Route path="/util-services/timer" render={() => <h1>Timer</h1>} />
     </Switch>
   );
 };
