@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import TimerNavBar from "./TimerNavBar";
 import TimerClock from "./TimerClock";
+import TimerSettings from "./TimerSettings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUndo, faCog } from "@fortawesome/free-solid-svg-icons";
+import notificationSound from "../../../mediaFiles/goes-without-saying-608.mp3";
 import "./TimerSection.css";
-import TimerSettings from "./TimerSettings";
 
 const TimerSection = () => {
   const timerButtons = [{ label: "Timer", value: "timer" }];
@@ -24,6 +25,7 @@ const TimerSection = () => {
   const [timerValueInMsec, setTimerValueInMsec] = useState(timerDurationInMsec);
   const [runningStatus, setRunningStatus] = useState(false);
   const [prevTime, setPrevTime] = useState(Date.now());
+  const [audio] = useState(new Audio(notificationSound));
 
   // run timer
   useEffect(() => {
@@ -45,6 +47,7 @@ const TimerSection = () => {
 
   // reset timer
   const resetTimer = () => {
+    audio.play();
     setRunningStatus(false);
     setTimerValueInMsec(timerDurationInMsec);
   };
