@@ -64,8 +64,8 @@ const initializeUsageStats = () => {
   if (storedUsageStats) return;
 
   const newUsageStats = {
-    todaysUsage: { date: new Date(), total: 0 },
-    yesterdaysUsage: { date: new Date(), total: 0 },
+    todaysUsage: { date: new Date().toISOString(), total: 0 },
+    yesterdaysUsage: { date: new Date().toISOString(), total: 0 },
     grandTotalUsage: { total: 0 },
   };
 
@@ -161,7 +161,10 @@ const refreshUsageStats = () => {
   const currentDate = new Date();
 
   if (todayHasPassed(todaysUsage.date))
-    updatedUsageStats.todaysUsage = { date: currentDate, total: 0 };
+    updatedUsageStats.todaysUsage = {
+      date: currentDate.toISOString(),
+      total: 0,
+    };
 
   if (yesterdayHasExpired(yesterdaysUsage.date))
     updatedUsageStats.yesterdaysUsage = { ...yesterdaysUsage, total: 0 };
