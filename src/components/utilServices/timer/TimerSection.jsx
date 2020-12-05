@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TimerNavBar from "./TimerNavBar";
 import TimerClock from "./TimerClock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,6 +23,34 @@ const TimerSection = () => {
   );
   const [timerValueInMsec, setTimerValueInMsec] = useState(timerDurationInMsec);
   const [runningStatus, setRunningStatus] = useState(false);
+  const [prevTime, setPrevTime] = useState(Date.now());
+
+  // run timer
+  useEffect(() => {
+    let timer;
+    if (runningStatus && timerValueInMsec > 0)
+      timer = setTimeout(() => {
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - prevTime;
+        setTimerValueInMsec(timerValueInMsec - elapsedTime);
+        setPrevTime(currentTime);
+      }, 250);
+
+    if (resetNeeded()) resetTimer();
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
+  // reset timer
+  const resetTimer = () => {
+    setRunningStatus(false);
+    setTimerValueInMsec(timerDurationInMsec);
+  };
+
+  const resetNeeded = () =>
+    timerValueInMsec <= 0 && selectedButton.value === "timer";
 
   // event handlers
   const changeSelectedButton = (button) => {
@@ -34,6 +62,7 @@ const TimerSection = () => {
   };
 
   const toggleRunningStatus = () => {
+    if (!runningStatus) setPrevTime(Date.now());
     setRunningStatus(!runningStatus);
   };
 
