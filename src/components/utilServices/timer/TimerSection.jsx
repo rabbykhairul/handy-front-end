@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getTimerDurationInMsec } from "../../../services/TimerService";
 import TimerNavBar from "./TimerNavBar";
 import TimerClock from "./TimerClock";
 import TimerSettings from "./TimerSettings";
@@ -15,12 +16,10 @@ const TimerSection = () => {
     { label: <FontAwesomeIcon icon={faCog} />, value: "settings" },
   ];
 
-  const mSecsPerMinute = 60000;
-
   // state variables
   const [selectedButton, setSelectedButton] = useState(timerButtons[0]);
   const [timerDurationInMsec, setTimerDurationInMsec] = useState(
-    35 * mSecsPerMinute
+    getTimerDurationInMsec()
   );
   const [timerValueInMsec, setTimerValueInMsec] = useState(timerDurationInMsec);
   const [runningStatus, setRunningStatus] = useState(false);

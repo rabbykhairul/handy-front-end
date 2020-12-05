@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import {
+  getTimerDurationInMinutes,
+  saveTimerDurationInMinutes,
+  DEFAULT_TIMER_DURATION_IN_MINUTES,
+} from "../../../services/TimerService";
 import Input from "../../commons/Input";
 import FormButton from "../../commons/FormButton";
 import "./TimerSettings.css";
 
 const TimerSettings = (props) => {
-  const { timerDurationInMsec, onEdit } = props;
+  const { onEdit } = props;
   const mSecsPerMinute = 60000;
-  const DEFAULT_DURATION = 35;
+
   const [timerDurationInMinutes, setTimerDurationInMinutes] = useState(
-    timerDurationInMsec / mSecsPerMinute
+    getTimerDurationInMinutes()
   );
 
   const updateInputField = (e) => {
@@ -19,8 +24,9 @@ const TimerSettings = (props) => {
     e.preventDefault();
 
     const newTimerDurationInMinutes =
-      timerDurationInMinutes || DEFAULT_DURATION;
+      timerDurationInMinutes || DEFAULT_TIMER_DURATION_IN_MINUTES;
 
+    saveTimerDurationInMinutes(newTimerDurationInMinutes);
     onEdit(newTimerDurationInMinutes * mSecsPerMinute);
   };
 
@@ -31,7 +37,7 @@ const TimerSettings = (props) => {
         label="Timer duration (in minutes)"
         name={"timerDurationInMinutes"}
         value={timerDurationInMinutes}
-        placeholder={DEFAULT_DURATION}
+        placeholder={DEFAULT_TIMER_DURATION_IN_MINUTES}
         onChange={updateInputField}
       />
       <FormButton label={"save settings"} />
