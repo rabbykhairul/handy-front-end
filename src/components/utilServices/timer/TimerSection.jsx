@@ -39,6 +39,8 @@ const TimerSection = () => {
 
   const updateTimerDuration = (milliSeconds) => {
     setTimerDurationInMsec(milliSeconds);
+    setTimerValueInMsec(milliSeconds);
+    setSelectedButton(timerButtons[0]);
   };
 
   // generic methods
