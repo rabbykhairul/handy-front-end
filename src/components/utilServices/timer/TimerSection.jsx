@@ -17,15 +17,19 @@ const TimerSection = () => {
 
   // state variables
   const [selectedButton, setSelectedButton] = useState(timerButtons[0]);
-  const [timerValueInMinutes, setTimerValueInMintues] = useState(35);
-  const [timerValueInMsec, setTimerValueInMsec] = useState(
-    timerValueInMinutes * mSecsPerMinute
+  const [timerDurationInMsec, setTimerDurationInMsec] = useState(
+    35 * mSecsPerMinute
   );
+  const [timerValueInMsec, setTimerValueInMsec] = useState(timerDurationInMsec);
   const [runningStatus, setRunningStatus] = useState(false);
 
   // event handlers
   const changeSelectedButton = (button) => {
-    setSelectedButton(button);
+    const newSelectedButton =
+      button.value === "reset" ? timerButtons[0] : button;
+    setSelectedButton(newSelectedButton);
+    setRunningStatus(false);
+    setTimerValueInMsec(getNewTimerValue(button));
   };
 
   const toggleRunningStatus = () => {
@@ -37,6 +41,11 @@ const TimerSection = () => {
     return (
       selectedButton.value === "settings" || selectedButton.value === "reset"
     );
+  };
+
+  const getNewTimerValue = (button) => {
+    if (button.value === "settings") return 0;
+    return timerDurationInMsec;
   };
 
   // helper methods for rendering
