@@ -7,26 +7,26 @@ import TimerSection from "./timer/TimerSection";
 import "./utilServicesPage.css";
 
 const UtilServicesPage = (props) => {
+  const renderSelectedServiceSection = () => {
+    return (
+      <Switch>
+        <Route
+          path="/util-services/resize-image"
+          component={ResizeImageSection}
+        />
+        <Route path="/util-services/pomodoro" component={PomodoroSection} />
+        <Route path="/util-services/timer" component={TimerSection} />
+        <Route path="/util-services/to-do" render={() => <h1>To do list</h1>} />
+      </Switch>
+    );
+  };
+
   return (
     <div className="util-services-page">
       <TopNavBar pageType="util-services" />
-      {renderSelectedServiceSection(props)}
+      {renderSelectedServiceSection()}
     </div>
   );
 };
 
 export default UtilServicesPage;
-
-const renderSelectedServiceSection = (props) => {
-  return (
-    <Switch>
-      <Route
-        path="/util-services/resize-image"
-        component={ResizeImageSection}
-      />
-      <Route path="/util-services/pomodoro" component={PomodoroSection} />
-      <Route path="/util-services/timer" component={TimerSection} />
-      <Route path="/util-services/to-do" render={() => <h1>To do list</h1>} />
-    </Switch>
-  );
-};
