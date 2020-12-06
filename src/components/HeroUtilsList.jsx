@@ -15,7 +15,11 @@ class HeroUtilsList extends Component {
       borderColor: "",
     },
     { label: "Convert image", to: "/", borderColor: "" },
-    { label: "create a to-do list", to: "/", borderColor: "" },
+    {
+      label: "Create to-do list",
+      to: "/util-services/to-do",
+      borderColor: "",
+    },
     { label: "Start timer", to: "/util-services/timer", borderColor: "" },
     { label: "Manage money", to: "/", borderColor: "" },
     { label: "Create survey", to: "/", borderColor: "" },
