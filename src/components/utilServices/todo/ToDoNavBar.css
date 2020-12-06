@@ -1,0 +1,36 @@
+.to-do-nav-bar {
+  color: #fff;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65vw 3.15vw;
+  background-color: rgb(61, 61, 61);
+}
+
+.to-do-nav-bar-left-side,
+.to-do-nav-bar-right-side {
+  display: flex;
+  align-items: center;
+}
+
+.to-do-nav-bar-left-side div {
+  margin-right: 1.35vw;
+}
+
+.to-do-nav-bar-right-side div {
+  margin-left: 1.35vw;
+  height: fit-content;
+}
+
+.to-do-nav-bar-item {
+  font-size: 1.05vw;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+/* .to-do-nav-bar-plus-button {
+  font-size: 2.5vw;
+  font-weight: 300;
+} */
