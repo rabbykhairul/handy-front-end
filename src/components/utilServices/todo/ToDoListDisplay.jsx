@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoItemForm from "./ToDoItemForm";
 import "./ToDoListDisplay.css";
 
 const ToDoListDisplay = () => {
@@ -24,10 +25,16 @@ const ToDoListDisplay = () => {
     );
   };
 
+  const renderToDoItemForm = () => {
+    if (creatingNewTaskStatus) return <ToDoItemForm />;
+    return null;
+  };
+
   return (
     <div className="to-do-list-display">
       {renderListHeader()}
       {renderAddTaskPrompt()}
+      {renderToDoItemForm()}
     </div>
   );
 };
