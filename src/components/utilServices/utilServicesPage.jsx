@@ -8,10 +8,7 @@ import ToDoSection from "./todo/ToDoSection";
 import "./utilServicesPage.css";
 
 const UtilServicesPage = (props) => {
-  const { location } = props;
-
   const renderTopNavBar = () => {
-    if (location.pathname === "/util-services/to-do") return null;
     return <TopNavBar pageType="util-services" />;
   };
   const renderSelectedServiceSection = () => {
