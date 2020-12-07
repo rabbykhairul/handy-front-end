@@ -1,0 +1,13 @@
+.to-do-text-area-input {
+  font-size: 0.9vw;
+  font-weight: 400;
+  letter-spacing: 0.035vw;
+  width: 100%;
+  height: auto;
+  border: none;
+  resize: none;
+}
+
+.to-do-text-area-input:focus {
+  outline: none;
+}
