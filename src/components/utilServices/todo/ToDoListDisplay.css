@@ -1,0 +1,37 @@
+.to-do-list-display {
+  width: 51.5%;
+  height: fit-content;
+  padding: 2.15vw 0;
+}
+
+.to-do-list-main-header {
+  color: #202020;
+  font-size: 1.1vw;
+  font-weight: 600;
+  letter-spacing: 0.035vw;
+  padding-bottom: 1.25vw;
+}
+
+.add-task-button {
+  color: rgb(150, 150, 150);
+  font-size: 0.9vw;
+  font-weight: 400;
+  letter-spacing: 0.035vw;
+  text-transform: lowercase;
+  display: flex;
+  align-items: center;
+  padding: 0.1vw 0;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+}
+
+.add-task-button:hover {
+  color: #232323;
+}
+
+.add-task-button .plus-icon {
+  display: inline-block;
+  font-size: 1.75vw;
+  font-weight: 300;
+  margin-right: 0.45vw;
+}
