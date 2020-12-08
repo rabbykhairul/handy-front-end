@@ -16,7 +16,6 @@ const ToDoListDisplay = () => {
     const newToDoItems = [...toDoItems];
     newToDoItems.push({ id: Date.now(), description: toDoDescription });
     setToDoItems(newToDoItems);
-    setCreatingNewTaskStatus(false);
   };
 
   const abortNewTaskCreation = () => {

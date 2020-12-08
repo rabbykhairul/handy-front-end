@@ -16,6 +16,7 @@ const ToDoItemForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(toDoDescription);
+    setToDoDescription("");
   };
 
   // generic methods
