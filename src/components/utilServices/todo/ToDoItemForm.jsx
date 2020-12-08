@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import ToDoTextAreaInput from "./ToDoTextAreaInput";
+import ToDoFormButton from "./ToDoFormButton";
 import "./ToDoItemForm.css";
 
 const ToDoItemForm = () => {
   const [toDoDescription, setToDoDescription] = useState("");
 
+  // event handlers
   const updateToDoDescription = (newDescription) => {
     setToDoDescription(newDescription);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   // helper methods for rendering
@@ -23,7 +29,16 @@ const ToDoItemForm = () => {
     );
   };
 
-  return <form className="to-do-item-form">{renderInputFields()}</form>;
+  const renderFormButtons = () => {
+    return <ToDoFormButton />;
+  };
+
+  return (
+    <form className="to-do-item-form" onSubmit={handleSubmit}>
+      {renderInputFields()}
+      {renderFormButtons()}
+    </form>
+  );
 };
 
 export default ToDoItemForm;
