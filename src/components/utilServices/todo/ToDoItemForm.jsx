@@ -4,9 +4,9 @@ import ToDoFormButton from "./ToDoFormButton";
 import "./ToDoItemForm.css";
 
 const ToDoItemForm = (props) => {
-  const { onSubmit, onCancel } = props;
+  const { description = "", onSubmit, onCancel } = props;
 
-  const [toDoDescription, setToDoDescription] = useState("");
+  const [toDoDescription, setToDoDescription] = useState(description);
 
   // event handlers
   const updateToDoDescription = (newDescription) => {
