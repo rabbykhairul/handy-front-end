@@ -1,6 +1,7 @@
 .to-do-item-form {
   width: 100%;
   height: fit-content;
+  padding-top: 0.8vw;
 }
 
 .to-do-item-form-input-area {
