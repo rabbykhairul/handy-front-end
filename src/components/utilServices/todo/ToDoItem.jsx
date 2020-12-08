@@ -18,7 +18,7 @@ const ToDoItem = (props) => {
   // helper methods for rendering
   const renderCheckButton = () => {
     return (
-      <div className="check-button" onClick={onCheck}>
+      <div className="to-do-action-button" onClick={onCheck}>
         <FontAwesomeIcon icon={checkIcon} />
       </div>
     );
@@ -31,10 +31,10 @@ const ToDoItem = (props) => {
   const renderToDoSettings = () => {
     return (
       <div className="to-do-settings">
-        <div className="check-button">
+        <div className="to-do-action-button">
           <FontAwesomeIcon icon={faEdit} />
         </div>
-        <div className="check-button">
+        <div className="to-do-action-button">
           <FontAwesomeIcon icon={faTrashAlt} />
         </div>
       </div>
