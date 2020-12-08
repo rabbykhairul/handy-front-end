@@ -71,9 +71,30 @@ const ToDoListDisplay = () => {
     setToDoItems(newToDoItems);
   };
 
+  // generic methods
+  const getCheckedItems = () => {
+    return toDoItems.filter((item) => item.checked);
+  };
+
   // helper methods for rendering
   const renderListHeader = () => {
     return <h1 className="to-do-list-main-header">Today</h1>;
+  };
+
+  const renderItem = (item) => {
+    return (
+      <ToDoItem
+        key={item.id}
+        description={item.description}
+        checked={item.checked}
+        onCheck={() => toggleCheckedStatusOfItem(item.id)}
+        onEditClick={() => letUserEditItem(item.id)}
+        editModeRunning={item.id === editItemId}
+        onEditDone={updateEditedItem}
+        onEditCancel={abortEditMode}
+        onDelete={() => deleteItemFromList(item.id)}
+      />
+    );
   };
 
   const renderToDoItems = () => {
@@ -114,12 +135,17 @@ const ToDoListDisplay = () => {
     return null;
   };
 
+  const renderCheckedItems = () => {
+    return getCheckedItems().map((item) => renderItem(item));
+  };
+
   return (
     <div className="to-do-list-display">
       {renderListHeader()}
       {renderToDoItems()}
       {renderAddTaskPrompt()}
       {renderToDoItemForm()}
+      {renderCheckedItems()}
     </div>
   );
 };
