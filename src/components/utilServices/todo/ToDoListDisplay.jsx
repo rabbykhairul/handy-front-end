@@ -6,9 +6,13 @@ import "./ToDoListDisplay.css";
 const ToDoListDisplay = () => {
   const [toDoItems, setToDoItems] = useState([]);
   const [creatingNewTaskStatus, setCreatingNewTaskStatus] = useState(false);
+  const [editingItemFromList, setEditingItemFromList] = useState(false);
+  const [editItemId, setEditItemId] = useState("");
 
   // event handlers
   const letUserCreateANewTask = () => {
+    setEditingItemFromList(false);
+    setEditItemId("");
     setCreatingNewTaskStatus(true);
   };
 
@@ -35,6 +39,28 @@ const ToDoListDisplay = () => {
     setToDoItems(newToDoItems);
   };
 
+  const letUserEditItem = (itemId) => {
+    setEditingItemFromList(true);
+    setCreatingNewTaskStatus(false);
+    setEditItemId(itemId);
+  };
+
+  const updateEditedItem = (toDoDescription) => {
+    const newToDoItems = [...toDoItems];
+    const targetItemIdx = newToDoItems.findIndex(
+      (item) => item.id === editItemId
+    );
+    const updatedItem = {
+      ...newToDoItems[targetItemIdx],
+      description: toDoDescription,
+    };
+    newToDoItems[targetItemIdx] = updatedItem;
+    setToDoItems(newToDoItems);
+
+    setEditItemId("");
+    setEditingItemFromList(false);
+  };
+
   const deleteItemFromList = (itemId) => {
     const newToDoItems = toDoItems.filter((item) => item.id !== itemId);
     setToDoItems(newToDoItems);
@@ -52,6 +78,9 @@ const ToDoListDisplay = () => {
         description={item.description}
         checked={item.checked}
         onCheck={() => toggleCheckedStatusOfItem(item.id)}
+        onEditClick={() => letUserEditItem(item.id)}
+        editModeRunning={item.id === editItemId}
+        onEditDone={updateEditedItem}
         onDelete={() => deleteItemFromList(item.id)}
       />
     ));

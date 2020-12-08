@@ -1,4 +1,5 @@
 import React from "react";
+import ToDoItemForm from "./ToDoItemForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircle,
@@ -9,13 +10,43 @@ import {
 import "./ToDoItem.css";
 
 const ToDoItem = (props) => {
-  const { description, checked, onCheck, onDelete } = props;
+  const {
+    description,
+    checked,
+    onCheck,
+    onEditClick,
+    editModeRunning,
+    onEditDone,
+    onDelete,
+  } = props;
+
   const checkIcon = checked ? faCheckCircle : faCircle;
   const descriptionTextClassName = checked
     ? "to-do-description checked"
     : "to-do-description";
 
+  // event handlers
+  const handleUserEdits = (toDoDescription) => {
+    onEditDone(toDoDescription);
+  };
+
+  const abortEditMode = () => {
+    console.log("abort edit mode");
+  };
+
   // helper methods for rendering
+  const renderItemDetails = () => {
+    if (editModeRunning) return null;
+
+    return (
+      <>
+        {renderCheckButton()}
+        {renderToDoDescription()}
+        {renderToDoSettings()}
+      </>
+    );
+  };
+
   const renderCheckButton = () => {
     return (
       <div className="to-do-action-button" onClick={onCheck}>
@@ -34,7 +65,7 @@ const ToDoItem = (props) => {
     return (
       <div className="to-do-settings">
         <div className="to-do-action-button">
-          <FontAwesomeIcon icon={faEdit} />
+          <FontAwesomeIcon icon={faEdit} onClick={onEditClick} />
         </div>
         <div className="to-do-action-button">
           <FontAwesomeIcon icon={faTrashAlt} onClick={onDelete} />
@@ -43,11 +74,21 @@ const ToDoItem = (props) => {
     );
   };
 
+  const renderItemEditForm = () => {
+    if (editModeRunning)
+      return (
+        <ToDoItemForm
+          description={description}
+          onSubmit={handleUserEdits}
+          onCancel={abortEditMode}
+        />
+      );
+  };
+
   return (
     <div className="to-do-item">
-      {renderCheckButton()}
-      {renderToDoDescription()}
-      {renderToDoSettings()}
+      {renderItemDetails()}
+      {renderItemEditForm()}
     </div>
   );
 };
