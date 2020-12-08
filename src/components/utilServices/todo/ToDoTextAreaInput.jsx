@@ -9,6 +9,7 @@ const ToDoTextAreaInput = (props) => {
 
   useEffect(() => {
     setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
+    if (value.length === 0) setTextAreaHeight("auto");
   }, [value]);
 
   const updateText = (e) => {
