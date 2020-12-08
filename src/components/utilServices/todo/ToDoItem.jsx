@@ -10,12 +10,23 @@ const ToDoItem = (props) => {
     ? "to-do-description checked"
     : "to-do-description";
 
-  return (
-    <div className="to-do-item">
+  // helper methods for rendering
+  const renderCheckButton = () => {
+    return (
       <div className="check-button" onClick={onCheck}>
         <FontAwesomeIcon icon={checkIcon} />
       </div>
-      <div className={descriptionTextClassName}>{description}</div>
+    );
+  };
+
+  const renderToDoDescription = () => {
+    return <div className={descriptionTextClassName}>{description}</div>;
+  };
+
+  return (
+    <div className="to-do-item">
+      {renderCheckButton()}
+      {renderToDoDescription()}
     </div>
   );
 };
