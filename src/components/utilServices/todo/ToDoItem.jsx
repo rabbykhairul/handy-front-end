@@ -9,7 +9,7 @@ import {
 import "./ToDoItem.css";
 
 const ToDoItem = (props) => {
-  const { description, checked, onCheck } = props;
+  const { description, checked, onCheck, onDelete } = props;
   const checkIcon = checked ? faCheckCircle : faCircle;
   const descriptionTextClassName = checked
     ? "to-do-description checked"
@@ -37,7 +37,7 @@ const ToDoItem = (props) => {
           <FontAwesomeIcon icon={faEdit} />
         </div>
         <div className="to-do-action-button">
-          <FontAwesomeIcon icon={faTrashAlt} />
+          <FontAwesomeIcon icon={faTrashAlt} onClick={onDelete} />
         </div>
       </div>
     );

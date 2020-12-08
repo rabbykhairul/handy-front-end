@@ -35,6 +35,11 @@ const ToDoListDisplay = () => {
     setToDoItems(newToDoItems);
   };
 
+  const deleteItemFromList = (itemId) => {
+    const newToDoItems = toDoItems.filter((item) => item.id !== itemId);
+    setToDoItems(newToDoItems);
+  };
+
   // helper methods for rendering
   const renderListHeader = () => {
     return <h1 className="to-do-list-main-header">Today</h1>;
@@ -47,6 +52,7 @@ const ToDoListDisplay = () => {
         description={item.description}
         checked={item.checked}
         onCheck={() => toggleCheckedStatusOfItem(item.id)}
+        onDelete={() => deleteItemFromList(item.id)}
       />
     ));
   };
