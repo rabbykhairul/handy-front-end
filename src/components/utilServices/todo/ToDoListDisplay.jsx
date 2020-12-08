@@ -28,7 +28,9 @@ const ToDoListDisplay = () => {
   };
 
   const renderToDoItems = () => {
-    return toDoItems.map((item) => <ToDoItem description={item.description} />);
+    return toDoItems.map((item) => (
+      <ToDoItem key={item.id} description={item.description} />
+    ));
   };
 
   const renderAddTaskPrompt = () => {
