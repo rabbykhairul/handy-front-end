@@ -15,6 +15,11 @@ const ToDoItemForm = () => {
     e.preventDefault();
   };
 
+  // generic methods
+  const shouldAddTaskButtonBeDisabled = () => {
+    return toDoDescription.length === 0;
+  };
+
   // helper methods for rendering
   const renderInputFields = () => {
     return (
@@ -32,7 +37,11 @@ const ToDoItemForm = () => {
   const renderFormButtons = () => {
     return (
       <>
-        <ToDoFormButton label="Add task" styleType="fancy" />
+        <ToDoFormButton
+          label="Add task"
+          styleType="fancy"
+          disabled={shouldAddTaskButtonBeDisabled()}
+        />
         <ToDoFormButton label="Cancel" styleType="normal" />
       </>
     );
