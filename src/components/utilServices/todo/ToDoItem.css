@@ -1,0 +1,29 @@
+.to-do-item {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  padding: 0.5vw 0;
+  border-bottom: 0.1vw solid rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+.check-button {
+  color: black;
+  opacity: 0.25;
+  font-size: 1.15vw;
+  margin-right: 0.65vw;
+  cursor: pointer;
+  transition: all 0.35s ease-out;
+}
+
+.check-button:hover {
+  opacity: 1;
+}
+
+.to-do-description {
+  color: #3d3d3d;
+  font-size: 0.9vw;
+  font-weight: 400;
+  letter-spacing: 0.075vw;
+  padding-top: 0.1vw;
+}
