@@ -29,6 +29,8 @@ const ToDoItem = (props) => {
   };
 
   const renderToDoSettings = () => {
+    if (checked) return null;
+
     return (
       <div className="to-do-settings">
         <div className="to-do-action-button">
