@@ -26,6 +26,15 @@ const ToDoListDisplay = () => {
     setCreatingNewTaskStatus(false);
   };
 
+  const toggleCheckedStatusOfItem = (itemId) => {
+    const newToDoItems = [...toDoItems];
+    const targetItemIdx = newToDoItems.findIndex((item) => item.id === itemId);
+    const updatedItem = { ...newToDoItems[targetItemIdx] };
+    updatedItem.checked = !updatedItem.checked;
+    newToDoItems[targetItemIdx] = updatedItem;
+    setToDoItems(newToDoItems);
+  };
+
   // helper methods for rendering
   const renderListHeader = () => {
     return <h1 className="to-do-list-main-header">Today</h1>;
@@ -37,6 +46,7 @@ const ToDoListDisplay = () => {
         key={item.id}
         description={item.description}
         checked={item.checked}
+        onCheck={() => toggleCheckedStatusOfItem(item.id)}
       />
     ));
   };

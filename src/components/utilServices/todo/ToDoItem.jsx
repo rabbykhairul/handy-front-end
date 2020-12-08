@@ -4,12 +4,12 @@ import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import "./ToDoItem.css";
 
 const ToDoItem = (props) => {
-  const { description, checked } = props;
+  const { description, checked, onCheck } = props;
   const checkIcon = checked ? faCheckCircle : faCircle;
 
   return (
     <div className="to-do-item">
-      <div className="check-button">
+      <div className="check-button" onClick={onCheck}>
         <FontAwesomeIcon icon={checkIcon} />
       </div>
       <div className="to-do-description">{description}</div>
