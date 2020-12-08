@@ -2,7 +2,12 @@ import React from "react";
 import "./ToDoFormButton.css";
 
 const ToDoFormButton = (props) => {
-  const { label, styleType = "normal", disabled = false } = props;
+  const {
+    type = "button",
+    label,
+    styleType = "normal",
+    disabled = false,
+  } = props;
 
   const className =
     styleType.toLowerCase() === "fancy"
@@ -10,7 +15,7 @@ const ToDoFormButton = (props) => {
       : "to-do-form-button btn-normal";
 
   return (
-    <button className={className} disabled={disabled}>
+    <button type={type} className={className} disabled={disabled}>
       {label}
     </button>
   );
