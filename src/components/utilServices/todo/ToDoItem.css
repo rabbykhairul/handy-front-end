@@ -3,7 +3,7 @@
   height: fit-content;
   position: relative;
   display: flex;
-  padding: 0.5vw 0;
+  padding: 0.65vw 0;
   border-bottom: 0.1vw solid rgb(235, 235, 235);
   cursor: pointer;
 }
@@ -46,7 +46,7 @@
   top: 0;
   right: 0;
   display: none;
-  padding: 0.4vw 0 0.35vw 1vw;
+  padding: 0.6vw 0 0.35vw 1vw;
   background-color: #fff;
 }
 
