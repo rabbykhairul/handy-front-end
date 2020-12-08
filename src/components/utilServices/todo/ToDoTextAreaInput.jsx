@@ -5,16 +5,11 @@ const ToDoTextAreaInput = (props) => {
   const { name, value, placeholder = "", onChange } = props;
   const textAreaRef = createRef();
 
-  const [text, setText] = useState(value);
   const [textAreaHeight, setTextAreaHeight] = useState("auto");
 
   useEffect(() => {
-    setText(value);
-  }, [value]);
-
-  useEffect(() => {
     setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
-  }, [text, textAreaRef]);
+  }, [value]);
 
   const updateText = (e) => {
     setTextAreaHeight("auto");
@@ -26,7 +21,7 @@ const ToDoTextAreaInput = (props) => {
     <textarea
       ref={textAreaRef}
       name={name}
-      value={text}
+      value={value}
       placeholder={placeholder}
       onChange={updateText}
       rows="1"

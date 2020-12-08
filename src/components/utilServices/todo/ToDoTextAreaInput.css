@@ -8,6 +8,10 @@
   resize: none;
 }
 
+.to-do-text-area-input::-webkit-scrollbar {
+  width: 0px;
+}
+
 .to-do-text-area-input:focus {
   outline: none;
 }
