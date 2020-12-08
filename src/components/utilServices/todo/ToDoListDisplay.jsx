@@ -6,7 +6,7 @@ import "./ToDoListDisplay.css";
 const ToDoListDisplay = () => {
   const [toDoItems, setToDoItems] = useState([]);
   const [creatingNewTaskStatus, setCreatingNewTaskStatus] = useState(false);
-  const [editingItemFromList, setEditingItemFromList] = useState(false);
+  const { 1: setEditingItemFromList } = useState(false);
   const [editItemId, setEditItemId] = useState("");
 
   // event handlers
