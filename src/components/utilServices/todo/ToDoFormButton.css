@@ -17,3 +17,15 @@
   color: #fff;
   background-color: #232323;
 }
+
+.btn-normal {
+  color: rgb(90, 90, 90);
+  font-size: 0.85vw;
+  font-weight: 400;
+  background-color: transparent;
+  transition: all 0.35s ease-in-out;
+}
+
+.btn-normal:hover {
+  text-decoration: underline;
+}
