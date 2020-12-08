@@ -23,7 +23,8 @@
 .to-do-description {
   color: #3d3d3d;
   font-size: 0.9vw;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.075vw;
-  padding-top: 0.1vw;
+  line-height: 1.5vw;
+  margin-top: -0.1vw;
 }
