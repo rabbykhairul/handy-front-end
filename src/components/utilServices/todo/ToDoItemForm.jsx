@@ -3,7 +3,9 @@ import ToDoTextAreaInput from "./ToDoTextAreaInput";
 import ToDoFormButton from "./ToDoFormButton";
 import "./ToDoItemForm.css";
 
-const ToDoItemForm = () => {
+const ToDoItemForm = (props) => {
+  const { onSubmit } = props;
+
   const [toDoDescription, setToDoDescription] = useState("");
 
   // event handlers
@@ -13,7 +15,7 @@ const ToDoItemForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    onSubmit(toDoDescription);
   };
 
   // generic methods
