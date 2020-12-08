@@ -24,6 +24,10 @@ const ToDoListDisplay = () => {
     return <h1 className="to-do-list-main-header">Today</h1>;
   };
 
+  const renderToDoItems = () => {
+    return toDoItems.map((item) => <ToDoItem description={item.description} />);
+  };
+
   const renderAddTaskPrompt = () => {
     if (creatingNewTaskStatus) return null;
 
@@ -44,6 +48,7 @@ const ToDoListDisplay = () => {
   return (
     <div className="to-do-list-display">
       {renderListHeader()}
+      {renderToDoItems()}
       {renderAddTaskPrompt()}
       {renderToDoItemForm()}
     </div>
