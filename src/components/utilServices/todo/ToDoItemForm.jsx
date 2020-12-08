@@ -13,6 +13,7 @@ const ToDoItemForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("submitted");
   };
 
   // generic methods
@@ -40,6 +41,7 @@ const ToDoItemForm = () => {
         <ToDoFormButton
           label="Add task"
           styleType="fancy"
+          type="submit"
           disabled={shouldAddTaskButtonBeDisabled()}
         />
         <ToDoFormButton label="Cancel" styleType="normal" />
