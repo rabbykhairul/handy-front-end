@@ -61,6 +61,11 @@ const ToDoListDisplay = () => {
     setEditingItemFromList(false);
   };
 
+  const abortEditMode = () => {
+    setEditItemId("");
+    setEditingItemFromList(false);
+  };
+
   const deleteItemFromList = (itemId) => {
     const newToDoItems = toDoItems.filter((item) => item.id !== itemId);
     setToDoItems(newToDoItems);
@@ -81,6 +86,7 @@ const ToDoListDisplay = () => {
         onEditClick={() => letUserEditItem(item.id)}
         editModeRunning={item.id === editItemId}
         onEditDone={updateEditedItem}
+        onEditCancel={abortEditMode}
         onDelete={() => deleteItemFromList(item.id)}
       />
     ));

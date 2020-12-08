@@ -17,6 +17,7 @@ const ToDoItem = (props) => {
     onEditClick,
     editModeRunning,
     onEditDone,
+    onEditCancel,
     onDelete,
   } = props;
 
@@ -28,10 +29,6 @@ const ToDoItem = (props) => {
   // event handlers
   const handleUserEdits = (toDoDescription) => {
     onEditDone(toDoDescription);
-  };
-
-  const abortEditMode = () => {
-    console.log("abort edit mode");
   };
 
   // helper methods for rendering
@@ -80,7 +77,7 @@ const ToDoItem = (props) => {
         <ToDoItemForm
           description={description}
           onSubmit={handleUserEdits}
-          onCancel={abortEditMode}
+          onCancel={onEditCancel}
         />
       );
   };
