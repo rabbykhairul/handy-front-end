@@ -4,7 +4,7 @@ import ToDoFormButton from "./ToDoFormButton";
 import "./ToDoItemForm.css";
 
 const ToDoItemForm = (props) => {
-  const { onSubmit } = props;
+  const { onSubmit, onCancel } = props;
 
   const [toDoDescription, setToDoDescription] = useState("");
 
@@ -45,8 +45,9 @@ const ToDoItemForm = (props) => {
           styleType="fancy"
           type="submit"
           disabled={shouldAddTaskButtonBeDisabled()}
+          onClick={handleSubmit}
         />
-        <ToDoFormButton label="Cancel" styleType="normal" />
+        <ToDoFormButton label="Cancel" styleType="normal" onClick={onCancel} />
       </>
     );
   };

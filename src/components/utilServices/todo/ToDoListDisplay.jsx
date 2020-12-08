@@ -19,6 +19,10 @@ const ToDoListDisplay = () => {
     setCreatingNewTaskStatus(false);
   };
 
+  const abortNewTaskCreation = () => {
+    setCreatingNewTaskStatus(false);
+  };
+
   // helper methods for rendering
   const renderListHeader = () => {
     return <h1 className="to-do-list-main-header">Today</h1>;
@@ -41,7 +45,12 @@ const ToDoListDisplay = () => {
 
   const renderToDoItemForm = () => {
     if (creatingNewTaskStatus)
-      return <ToDoItemForm onSubmit={addNewToDoItem} />;
+      return (
+        <ToDoItemForm
+          onSubmit={addNewToDoItem}
+          onCancel={abortNewTaskCreation}
+        />
+      );
     return null;
   };
 

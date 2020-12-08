@@ -7,6 +7,7 @@ const ToDoFormButton = (props) => {
     label,
     styleType = "normal",
     disabled = false,
+    onClick,
   } = props;
 
   const className =
@@ -15,7 +16,12 @@ const ToDoFormButton = (props) => {
       : "to-do-form-button btn-normal";
 
   return (
-    <button type={type} className={className} disabled={disabled}>
+    <button
+      type={type}
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {label}
     </button>
   );
