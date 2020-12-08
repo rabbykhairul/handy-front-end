@@ -1,6 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCircle,
+  faCheckCircle,
+  faTrashAlt,
+  faEdit,
+} from "@fortawesome/free-regular-svg-icons";
 import "./ToDoItem.css";
 
 const ToDoItem = (props) => {
@@ -23,10 +28,24 @@ const ToDoItem = (props) => {
     return <div className={descriptionTextClassName}>{description}</div>;
   };
 
+  const renderToDoSettings = () => {
+    return (
+      <div className="to-do-settings">
+        <div className="check-button">
+          <FontAwesomeIcon icon={faEdit} />
+        </div>
+        <div className="check-button">
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="to-do-item">
       {renderCheckButton()}
       {renderToDoDescription()}
+      {renderToDoSettings()}
     </div>
   );
 };
