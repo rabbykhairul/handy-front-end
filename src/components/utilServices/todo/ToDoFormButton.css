@@ -7,10 +7,15 @@
   border-color: transparent;
   border-radius: 0.25vw;
   cursor: pointer;
+  transition: all 0.35s ease-in-out;
 }
 
 .to-do-form-button:focus {
   outline: none;
+}
+
+.to-do-form-button:disabled {
+  background-color: rgb(120, 120, 120);
 }
 
 .btn-fancy {
@@ -23,7 +28,6 @@
   font-size: 0.85vw;
   font-weight: 400;
   background-color: transparent;
-  transition: all 0.35s ease-in-out;
 }
 
 .btn-normal:hover {
