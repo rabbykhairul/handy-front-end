@@ -76,6 +76,10 @@ const ToDoListDisplay = () => {
     return toDoItems.filter((item) => item.checked);
   };
 
+  const getUncheckedItems = () => {
+    return toDoItems.filter((item) => !item.checked);
+  };
+
   // helper methods for rendering
   const renderListHeader = () => {
     return <h1 className="to-do-list-main-header">Today</h1>;
@@ -98,7 +102,7 @@ const ToDoListDisplay = () => {
   };
 
   const renderToDoItems = () => {
-    return toDoItems.map((item) => renderItem(item));
+    return getUncheckedItems().map((item) => renderItem(item));
   };
 
   const renderAddTaskPrompt = () => {
