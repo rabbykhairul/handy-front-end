@@ -9,16 +9,21 @@ const ToDoItemForm = () => {
     setToDoDescription(newDescription);
   };
 
-  return (
-    <div className="to-do-item-form" tabIndex="0">
-      <ToDoTextAreaInput
-        name="toDoDescription"
-        value={toDoDescription}
-        placeholder="e.g. renew neteflix subscription"
-        onChange={updateToDoDescription}
-      />
-    </div>
-  );
+  // helper methods for rendering
+  const renderInputFields = () => {
+    return (
+      <div className="to-do-item-form-input-area">
+        <ToDoTextAreaInput
+          name="toDoDescription"
+          value={toDoDescription}
+          placeholder="e.g. renew neteflix subscription"
+          onChange={updateToDoDescription}
+        />
+      </div>
+    );
+  };
+
+  return <form className="to-do-item-form">{renderInputFields()}</form>;
 };
 
 export default ToDoItemForm;

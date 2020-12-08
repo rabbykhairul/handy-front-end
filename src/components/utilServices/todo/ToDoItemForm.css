@@ -1,8 +1,13 @@
 .to-do-item-form {
   width: 100%;
-  min-height: 5vw;
   height: fit-content;
-  padding: 0.85vw 0.65vw;
+}
+
+.to-do-item-form-input-area {
+  width: 100%;
+  min-height: 1vw;
+  height: fit-content;
+  padding: 0.65vw 0.65vw 0.35vw 0.65vw;
   border: 0.1vw solid;
   border-color: black;
   border-radius: 0.35vw;
