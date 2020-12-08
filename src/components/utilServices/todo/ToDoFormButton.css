@@ -1,0 +1,19 @@
+.to-do-form-button {
+  font-size: 0.9vw;
+  font-weight: 500;
+  letter-spacing: 0.035vw;
+  padding: 0.46vw 0.75vw;
+  border: 0.1vw solid;
+  border-color: transparent;
+  border-radius: 0.25vw;
+  cursor: pointer;
+}
+
+.to-do-form-button:focus {
+  outline: none;
+}
+
+.btn-fancy {
+  color: #fff;
+  background-color: #232323;
+}
