@@ -1,15 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { faCircle, faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import "./ToDoItem.css";
 
 const ToDoItem = (props) => {
-  const { description } = props;
+  const { description, checked } = props;
+  const checkIcon = checked ? faCheckCircle : faCircle;
 
   return (
     <div className="to-do-item">
       <div className="check-button">
-        <FontAwesomeIcon icon={faCircle} />
+        <FontAwesomeIcon icon={checkIcon} />
       </div>
       <div className="to-do-description">{description}</div>
     </div>

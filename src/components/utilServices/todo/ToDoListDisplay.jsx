@@ -14,7 +14,11 @@ const ToDoListDisplay = () => {
 
   const addNewToDoItem = (toDoDescription) => {
     const newToDoItems = [...toDoItems];
-    newToDoItems.push({ id: Date.now(), description: toDoDescription });
+    newToDoItems.push({
+      id: Date.now(),
+      description: toDoDescription,
+      checked: false,
+    });
     setToDoItems(newToDoItems);
   };
 
@@ -29,7 +33,11 @@ const ToDoListDisplay = () => {
 
   const renderToDoItems = () => {
     return toDoItems.map((item) => (
-      <ToDoItem key={item.id} description={item.description} />
+      <ToDoItem
+        key={item.id}
+        description={item.description}
+        checked={item.checked}
+      />
     ));
   };
 
