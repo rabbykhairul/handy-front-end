@@ -98,19 +98,7 @@ const ToDoListDisplay = () => {
   };
 
   const renderToDoItems = () => {
-    return toDoItems.map((item) => (
-      <ToDoItem
-        key={item.id}
-        description={item.description}
-        checked={item.checked}
-        onCheck={() => toggleCheckedStatusOfItem(item.id)}
-        onEditClick={() => letUserEditItem(item.id)}
-        editModeRunning={item.id === editItemId}
-        onEditDone={updateEditedItem}
-        onEditCancel={abortEditMode}
-        onDelete={() => deleteItemFromList(item.id)}
-      />
-    ));
+    return toDoItems.map((item) => renderItem(item));
   };
 
   const renderAddTaskPrompt = () => {
