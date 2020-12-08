@@ -30,7 +30,12 @@ const ToDoItemForm = () => {
   };
 
   const renderFormButtons = () => {
-    return <ToDoFormButton />;
+    return (
+      <>
+        <ToDoFormButton label="Add task" styleType="fancy" />
+        <ToDoFormButton label="Cancel" styleType="normal" />
+      </>
+    );
   };
 
   return (
