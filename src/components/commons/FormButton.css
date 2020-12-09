@@ -25,3 +25,22 @@
   background-color: #232323;
   border-color: #232323;
 }
+
+.form-button-submit-animation {
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.35vw;
+  text-transform: lowercase;
+  background-color: #232323;
+  border-color: #232323;
+  animation: pulseLetterSpacing 0.65s linear infinite alternate;
+}
+
+@keyframes pulseLetterSpacing {
+  0% {
+    letter-spacing: 0.35vw;
+  }
+  100% {
+    letter-spacing: 0.45vw;
+  }
+}
