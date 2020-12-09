@@ -1,7 +1,7 @@
 import fileDownload from "js-file-download";
 import http from "./httpService";
 
-const API_END_POINT = "http://localhost:3000/api/resize-image";
+const API_END_POINT = "https://handy-back-end.herokuapp.com/api/resize-image";
 
 const getResizedImage = async (userInput) => {
   const data = new FormData();
