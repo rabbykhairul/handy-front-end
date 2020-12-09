@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getResizedImage } from "../../../services/imageService";
 import Input from "../../commons/Input";
 import FileInput from "../../commons/FileInput";
 import RadioInputGroup from "../../commons/RadioInputGroup";
@@ -10,7 +11,7 @@ const ResizeImageForm = () => {
     image: null,
     width: "",
     height: "",
-    formats: "",
+    format: "",
   });
 
   // Update input fields as user edits the form
@@ -28,7 +29,7 @@ const ResizeImageForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(input);
-    // getResizedImage(input);
+    getResizedImage(input);
   };
 
   // Handle drag and drop file input
@@ -94,7 +95,7 @@ const ResizeImageForm = () => {
         <div className="resize-image-form-row">
           <RadioInputGroup
             title="select new image type"
-            name="formats"
+            name="format"
             radiosList={radiosList}
             onChange={updateInputData}
           />
