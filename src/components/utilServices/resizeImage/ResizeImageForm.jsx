@@ -14,6 +14,8 @@ const ResizeImageForm = () => {
     format: "",
   });
 
+  const [submitStatus, setSubmitStatus] = useState(false);
+
   // Update input fields as user edits the form
   const updateInputData = (e) => {
     const inputField = e.currentTarget;
@@ -26,10 +28,17 @@ const ResizeImageForm = () => {
   };
 
   // Handle the form data when user click submit button
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(input);
-    getResizedImage(input);
+    setSubmitStatus(true);
+    await getResizedImage(input);
+    setSubmitStatus(false);
+    setInput({
+      image: null,
+      width: "",
+      height: "",
+      format: "",
+    });
   };
 
   // Handle drag and drop file input
@@ -107,7 +116,11 @@ const ResizeImageForm = () => {
   const renderFormSubmitButton = () => {
     return (
       <div className="resize-image-form-row">
-        <FormButton label="resize image" />
+        <FormButton
+          label="resize image"
+          submitStatus={submitStatus}
+          submitMessage="processing image"
+        />
       </div>
     );
   };
