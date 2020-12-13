@@ -4,7 +4,12 @@ import ToDoFormButton from "./ToDoFormButton";
 import "./ToDoItemForm.css";
 
 const ToDoItemForm = (props) => {
-  const { description = "", onSubmit, onCancel } = props;
+  const {
+    description = "",
+    submitButtonLabel = "Add task",
+    onSubmit,
+    onCancel,
+  } = props;
 
   const [toDoDescription, setToDoDescription] = useState(description);
 
@@ -42,7 +47,7 @@ const ToDoItemForm = (props) => {
     return (
       <>
         <ToDoFormButton
-          label="Add task"
+          label={submitButtonLabel}
           styleType="fancy"
           type="submit"
           disabled={shouldAddTaskButtonBeDisabled()}

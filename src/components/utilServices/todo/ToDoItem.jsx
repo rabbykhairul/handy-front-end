@@ -76,6 +76,7 @@ const ToDoItem = (props) => {
       return (
         <ToDoItemForm
           description={description}
+          submitButtonLabel="Save"
           onSubmit={handleUserEdits}
           onCancel={onEditCancel}
         />
